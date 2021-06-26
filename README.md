@@ -1,3 +1,5 @@
+Change
+
 Introduction
 The objective of this homework is to develop an RPG battle simulator, where you can create a party of warriors and wizards to fight other parties to determine the winner. This will be a warmup project that will not have any following in the next weeks so use it as an opportunity to learn to work with your team and practice the basics on a longer project.
 
