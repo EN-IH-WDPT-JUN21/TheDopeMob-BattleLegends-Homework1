@@ -1,4 +1,5 @@
 public class Character {
+String name;
 int charid;
 int hp;
 boolean isAlive;
