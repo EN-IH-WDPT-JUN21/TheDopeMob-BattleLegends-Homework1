@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class Wizard {
     private int mana;
     private int Intelligence;
@@ -9,7 +7,7 @@ public class Wizard {
 
     public Wizard(int mana, int intelligence, int fireball, int staffhit) {
         this.mana = mana;
-        Intelligence = intelligence;
+        this.Intelligence = intelligence;
         Fireball = fireball;
         Staffhit = staffhit;
     }
