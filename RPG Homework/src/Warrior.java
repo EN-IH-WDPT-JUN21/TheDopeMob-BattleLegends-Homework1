@@ -1,4 +1,4 @@
-public class Warrior {
+public class Warrior extends Character {
     private int stamina;
     private int strength;
     private int heavyattack;
@@ -44,23 +44,20 @@ public class Warrior {
         this.weakattack = weakattack;
     }
 
-    public boolean attack(final BattleUnit target) {
-        if (die.roll6() <= 5) {
-            System.out.println("Attack"); //needs linking to heavy/weak with stam
-            target.damage(produceDamage());
-        }
-        if (die.roll6() > 5) {
-            System.out.println("Critical Hit");
-
-            target.damage(produceDamage());
-
-            if (target.isDead()) {
-                System.out.println("You win");
-                return false;
+   // public boolean attack(final BattleUnit target) {
+    //    if (die.roll6() <= 5) {
+     //       System.out.println("Attack"); //needs linking to heavy/weak with stam
+      //      target.damage(produceDamage());
+      //  }
+       // if (die.roll6() > 5) {
+         //   System.out.println("Critical Hit");
+//
+  //          target.damage(produceDamage());
+//
+  //          if (target.isDead()) {
+    //            System.out.println("You win");
+      //          return false;
             }
-        }
-    }
-}
 
 
 

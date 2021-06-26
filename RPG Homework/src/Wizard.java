@@ -1,11 +1,11 @@
-public class Wizard {
+public class Wizard extends Character {
     private int mana;
     private int Intelligence;
     private int Fireball;
     private int Staffhit;
 
 
-    public Wizard(int mana, int intelligence, int fireball, int staffhit) {
+    private Wizard(int mana, int intelligence, int fireball, int staffhit) {
         this.mana = mana;
         this.Intelligence = intelligence;
         Fireball = fireball;
