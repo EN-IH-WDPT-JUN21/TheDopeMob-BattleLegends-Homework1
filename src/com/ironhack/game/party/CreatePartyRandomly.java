@@ -1,4 +1,4 @@
-package Create_Party_Manually;
+package com.ironhack.game.party;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -12,7 +12,7 @@ public class CreatePartyRandomly {
 
     //Variables picked randomly:
     private String nameTemp;
-    private int characterClassTemp; // (1 = Warrior, 2 = Wizard)
+    private int characterClassTemp; // (1 = com.ironhack.game.character.Warrior, 2 = com.ironhack.game.character.Wizard)
     private int hpTemp; //(range 100-200 for warriors and 50-100 for wizards)
     private int staminaTemp; //(range 10-50)
     private int strengthTemp; //(range 1-10)
@@ -47,11 +47,11 @@ public class CreatePartyRandomly {
                 setName();
 
                 //Checking is such name exists among already created fighters and adding "Jr" at the end
-                for(int i = 0; i < party1.size(); i++){
-                    if(nameTemp == party1.get(i).getName()){
-                        nameTemp = nameTemp + " Jr";
-                    }
-                }
+//                for(int i = 0; i < party1.size(); i++){
+//                    if(nameTemp == party1.get(i).getName()){
+//                        nameTemp = nameTemp + " Jr";
+//                    }
+//                }
 
                 //Setting random parameters
                 setCharacterClass();
@@ -61,12 +61,12 @@ public class CreatePartyRandomly {
                 setMana();
                 setIntelligence();
 
-                //Fighter objects are created and added to party ArrayLists
-                if (characterClassTemp == 1){
-                    party1.add(new Warrior(nameTemp, hpTemp, staminaTemp, strengthTemp));
-                }else if(characterClassTemp == 2){
-                    party1.add(new Wizard(nameTemp, hpTemp, manaTemp, intelligenceTemp));
-                }
+//                //Fighter objects are created and added to party ArrayLists
+//                if (characterClassTemp == 1){
+//                    party1.add(new Warrior(nameTemp, hpTemp, staminaTemp, strengthTemp));
+//                }else if(characterClassTemp == 2){
+//                    party1.add(new Wizard(nameTemp, hpTemp, manaTemp, intelligenceTemp));
+//                }
 //                Access to hero object method toString to summarize a new character;
             }
 
@@ -77,11 +77,11 @@ public class CreatePartyRandomly {
             setName();
 
             //Checking is such name exists among already created fighters and adding "Jr" at the end
-            for(int i = 0; i < party2.size(); i++){
-                if(nameTemp == party2.get(i).getName()){
-                    nameTemp = nameTemp + " Jr";
-                }
-            }
+//            for(int i = 0; i < party2.size(); i++){
+//                if(nameTemp == party2.get(i).getName()){
+//                    nameTemp = nameTemp + " Jr";
+//                }
+//            }
 
             //Setting random parameters
             setCharacterClass();
@@ -92,12 +92,12 @@ public class CreatePartyRandomly {
             setIntelligence();
 
             //Fighter objects are created and added to party ArrayLists
-            if (characterClassTemp == 1){
-                party2.add(new Warrior(nameTemp, hpTemp, staminaTemp, strengthTemp));
-            }else if(characterClassTemp == 2){
-                party2.add(new Wizard(nameTemp, hpTemp, manaTemp, intelligenceTemp));
-            }
-//                Access to hero object method toString to summarize a new character;
+//            if (characterClassTemp == 1){
+//                party2.add(new Warrior(nameTemp, hpTemp, staminaTemp, strengthTemp));
+//            }else if(characterClassTemp == 2){
+//                party2.add(new Wizard(nameTemp, hpTemp, manaTemp, intelligenceTemp));
+//            }
+////                Access to hero object method toString to summarize a new character;
         }
 
         System.out.println("\nAll fighters were gathered together. The battle shell start...");
@@ -144,7 +144,7 @@ public class CreatePartyRandomly {
         return hpTemp;
     }
 
-    //Warrior attributes
+    //com.ironhack.game.character.Warrior attributes
     //Random selection of character's >>stamina<<
     public int setStamina() {
 
@@ -162,7 +162,7 @@ public class CreatePartyRandomly {
         return strengthTemp;
     }
 
-    //Wizard attributes
+    //com.ironhack.game.character.Wizard attributes
     //Random selection of character's >>mana<<
     public int setMana() {
         if (characterClassTemp == 2) {

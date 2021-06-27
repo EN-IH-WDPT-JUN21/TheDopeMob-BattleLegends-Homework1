@@ -1,4 +1,4 @@
-package Create_Party_Manually;
+package com.ironhack.game.party;
 
 import java.util.Scanner;
 
