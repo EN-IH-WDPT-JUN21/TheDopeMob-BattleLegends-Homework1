@@ -1,0 +1,47 @@
+package com.ironhack.game.party;
+
+import com.ironhack.game.character.Warrior;
+import com.ironhack.game.character.Wizard;
+import com.ironhack.game.play.Player;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public abstract class ImportParty {
+    private static String id;
+    private static int counter = 0;
+
+    public static void create(Player player) throws FileNotFoundException {
+
+        Scanner scannerCSV = new Scanner(new File("src/com/ironhack/game/party/ImportFile.txt"));
+        scannerCSV.useDelimiter(",");
+        while (scannerCSV.hasNext()) {
+            String type = scannerCSV.next().trim();
+            String name = scannerCSV.next().trim();
+            int HP = Integer.parseInt(scannerCSV.next().trim());
+            int resource = Integer.parseInt(scannerCSV.next().trim());
+            int attack = Integer.parseInt(scannerCSV.next().trim());
+            updateCounter();
+
+            if (type.equals("Warrior")) {
+                Warrior warrior = new Warrior(id, name, HP, resource, attack);
+                player.addCharacter(warrior);
+            } else if (type.equals("Wizard")) {
+                Wizard wizard = new Wizard(id, name, HP, resource, attack);
+                player.addCharacter(wizard);
+            }
+        }
+        scannerCSV.close();
+    }
+
+    public static void updateCounter() {
+        counter++;
+        if(counter < 10) {
+            ImportParty.id = "00" + counter;
+        } else if(counter >= 9) {
+            ImportParty.id = "0" + counter;
+        } else {
+            ImportParty.id = String.valueOf(counter);
+        }
+    }
+}

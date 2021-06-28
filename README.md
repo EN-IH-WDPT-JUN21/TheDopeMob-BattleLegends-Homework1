@@ -7,19 +7,19 @@ Let’s walk through the details of the project:
 
 We have two types of characters, warriors and wizards who have different attributes and combat styles You need to create character class (that cannot be instantiated) that will contain base attributes that are common for both warriors and wizards
 
-Character:
+com.ironhack.game.character.Character:
 
 
 id - unique identifier
 name - String
 hp - number representing the health points
 isAlive - flag to determine if the Player is alive
-Warrior:
+com.ironhack.game.character.Warrior:
 
 
 stamina - number to represent a resource the warrior consumes to make an attack
 strength - number to calculate how strong the warrior attack is
-Wizard:
+com.ironhack.game.character.Wizard:
 
 
 mana - number to represent a resource the wizard consumes to cast spells
@@ -43,7 +43,7 @@ Conditionals to validate the combatant’s condition and determinate when the fi
 
 
 
-Character Attacks
+com.ironhack.game.character.Character Attacks
 Both wizards and warriors will have the same attack command defined by an interface called Attacker.
 
 Warriors are strong well armored characters that focus on the attribute strength. Every round a warrior will try to do a “Heavy attack”. The damage of a heavy attack is equals to their strength and every hit will decrease their stamina by 5 points. If he can’t make a heavy attack he will do a “Weak attack”. The damage of a weak attack is the half of the strength (truncate decimals). Every weak attack will recover his stamina by 1.

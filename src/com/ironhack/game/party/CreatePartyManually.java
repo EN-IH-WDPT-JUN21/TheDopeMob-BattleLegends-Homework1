@@ -1,4 +1,7 @@
-package Create_Party_Manually;
+package com.ironhack.game.party;
+
+import com.ironhack.game.character.Warrior;
+import com.ironhack.game.character.Wizard;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -10,7 +13,7 @@ public class CreatePartyManually {
 
     //Variables defined by a player:
     private String nameTemp;
-    private int characterClassTemp; // (1 = Warrior, 2 = Wizard)
+    private int characterClassTemp; // (1 = com.ironhack.game.character.Warrior, 2 = com.ironhack.game.character.Wizard)
     private int hpTemp; //(range 1-200)
     private int staminaTemp; //(range 1-50)
     private int strengthTemp; //(range 1-10)
@@ -50,11 +53,11 @@ public class CreatePartyManually {
                 setIntelligence();
 
                 //Fighter objects are created and added to party ArrayLists
-                if (characterClassTemp == 1){
-                    party1.add(new Warrior(nameTemp, hpTemp, staminaTemp, strengthTemp));
-                }else if(characterClassTemp == 2){
-                    party1.add(new Wizard(nameTemp, hpTemp, manaTemp, intelligenceTemp));
-                }
+//                if (characterClassTemp == 1){
+//                    party1.add(new Warrior(nameTemp, hpTemp, staminaTemp, strengthTemp));
+//                }else if(characterClassTemp == 2){
+//                    party1.add(new Wizard(nameTemp, hpTemp, manaTemp, intelligenceTemp));
+//                }
 //                Access to hero object method toString to summarize a new character;
             }
 
@@ -76,11 +79,11 @@ public class CreatePartyManually {
                 setIntelligence();
 
                 //Fighter objects are created and added to party ArrayLists
-                if (characterClassTemp == 1){
-                    party2.add(new Warrior(nameTemp, hpTemp, staminaTemp, strengthTemp));
-                }else if(characterClassTemp == 2){
-                    party2.add(new Wizard(nameTemp, hpTemp, manaTemp, intelligenceTemp));
-                }
+//                if (characterClassTemp == 1){
+//                    party2.add(new Warrior(nameTemp, hpTemp, staminaTemp, strengthTemp));
+//                }else if(characterClassTemp == 2){
+//                    party2.add(new Wizard(nameTemp, hpTemp, manaTemp, intelligenceTemp));
+//                }
 //                Access to hero object method toString to summarize a new character;
             }
 
@@ -95,7 +98,7 @@ public class CreatePartyManually {
         Scanner scanner = new Scanner(System.in);
 
         partySizeLimit = scanner.nextInt();
-        System.out.println("\nParties' size is set to " + partySizeLimit + ".");
+        System.out.println("\nParties' size is set to " + partySizeLimit + "");
         return partySizeLimit;
     }
 
@@ -106,7 +109,7 @@ public class CreatePartyManually {
         Scanner scanner = new Scanner(System.in);
 
         nameTemp = scanner.nextLine();
-        System.out.println("\nYour fighter's name is " + nameTemp + ".");
+        System.out.println("\nYour fighter's name is " + nameTemp + "");
         return nameTemp;
     }
 
@@ -114,8 +117,8 @@ public class CreatePartyManually {
     public int setCharacterClass() {
         System.out.println("\n(Step 2/5)\nPlease select " + nameTemp + "'s" + " class:");
         System.out.println("┎---------------------------------------------┒");
-        System.out.println("│[1] Warrior                                  │");
-        System.out.println("│[2] Wizard                                   │");
+        System.out.println("│[1] com.ironhack.game.character.Warrior                                  │");
+        System.out.println("│[2] com.ironhack.game.character.Wizard                                   │");
         System.out.println("┖---------------------------------------------┚");
 
         characterClassTemp = 0;
@@ -134,10 +137,10 @@ public class CreatePartyManually {
 
         switch (characterClassTemp) {
             case 1:
-                System.out.println("\n" + nameTemp + " is a Warrior now.");
+                System.out.println("\n" + nameTemp + " is a com.ironhack.game.character.Warrior now.");
                 break;
             case 2:
-                System.out.println("\n" + nameTemp + " is a Wizard now.");
+                System.out.println("\n" + nameTemp + " is a com.ironhack.game.character.Wizard now.");
                 break;
             default:
                 System.out.println("\nThings went south. Try again.");
@@ -158,7 +161,7 @@ public class CreatePartyManually {
             hpTemp = scanner.nextInt();
 
             if (hpTemp >= 1 && hpTemp <= 200) {
-                System.out.println("\n" + nameTemp + "'s" + " HP is: " + hpTemp + ".");
+                System.out.println("\n" + nameTemp + "'s" + " HP is: " + hpTemp + "");
                 break;
             } else {
                 System.out.println("\n" + nameTemp + "'s HP should be set between 1 and 200. Try again!");
@@ -167,7 +170,7 @@ public class CreatePartyManually {
         return hpTemp;
     }
 
-    //Warrior attributes customization
+    //com.ironhack.game.character.Warrior attributes customization
     //Set character's >>stamina<<
     public int setStamina() {
 
@@ -182,7 +185,7 @@ public class CreatePartyManually {
                 staminaTemp = scanner.nextInt();
 
                 if (staminaTemp >= 1 && staminaTemp <= 50) {
-                    System.out.println("\n" + nameTemp + "'s" + " stamina is: " + staminaTemp + ".");
+                    System.out.println("\n" + nameTemp + "'s" + " stamina is: " + staminaTemp + "");
                     break;
                 } else {
                     System.out.println("\n" + nameTemp + "'s stamina should be set between 1 and 50. Try again!");
@@ -205,7 +208,7 @@ public class CreatePartyManually {
                 strengthTemp = scanner.nextInt();
 
                 if (strengthTemp >= 1 && strengthTemp <= 10) {
-                    System.out.println("\n" + nameTemp + "'s" + " strength is: " + strengthTemp + ".");
+                    System.out.println("\n" + nameTemp + "'s" + " strength is: " + strengthTemp + "");
                     break;
                 } else {
                     System.out.println("\n" + nameTemp + "'s strength should be set between 1 and 10. Try again!\n");
@@ -215,7 +218,7 @@ public class CreatePartyManually {
         return strengthTemp;
     }
 
-    //Wizard attributes customization
+    //com.ironhack.game.character.Wizard attributes customization
     //Set character's >>mana<<
     public int setMana() {
         if (characterClassTemp == 2) {
@@ -229,7 +232,7 @@ public class CreatePartyManually {
                 manaTemp = scanner.nextInt();
 
                 if (manaTemp >= 1 && manaTemp <= 50) {
-                    System.out.println("\n" + nameTemp + "'s" + " mana is: " + manaTemp + ".");
+                    System.out.println("\n" + nameTemp + "'s" + " mana is: " + manaTemp + "");
                     break;
                 } else {
                     System.out.println("\n" + nameTemp + "'s mana should be set between 1 and 50. Try again!");
@@ -252,7 +255,7 @@ public class CreatePartyManually {
                 intelligenceTemp = scanner.nextInt();
 
                 if (intelligenceTemp >= 1 && intelligenceTemp <= 50) {
-                    System.out.println("\n" + nameTemp + "'s" + " intelligence is: " + intelligenceTemp + ".");
+                    System.out.println("\n" + nameTemp + "'s" + " intelligence is: " + intelligenceTemp + "");
                     break;
                 } else {
                     System.out.println("\n" + nameTemp + "'s intelligence should be set between 1 and 50. Try again!");

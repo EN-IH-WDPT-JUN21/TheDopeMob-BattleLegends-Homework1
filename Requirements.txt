@@ -1,0 +1,37 @@
+REQUIREMENTS
+
+For this project you must accomplish all of the following:
+
+    1. Navigate through a text-based menu using Standard Input and Output.
+    2. Create Warriors and Wizards individually customizing their stats and name and adding them to a party.
+    3. Create a full party of randomly generated Wizards and Warriors with randomized stats considering these limits:
+
+        - name: based on an array of names, pick a random position, and if is already in the party add Jr at the end.
+        - hp: random between 100-200 to warriors, 50-100 for wizards)
+        - stamina: random between 10-50
+        - strength: random between 1-10
+        - mana: random between 10-50
+        - intelligence: random between 1-50
+
+    4. Import a party using a CSV file.
+    5. Show the graveyard (is the same graveyard for both parties)
+    6. The battle between parties and determines the winner.
+    7. Keep a detailed log (on the standard output) of every action taken during the duels.
+
+Character:
+
+    id - unique identifier
+    name - String
+    hp - number representing the health points
+    isAlive - flag to determine if the Player is alive
+
+Warrior:
+
+    stamina - number to represent a resource the warrior consumes to make an attack
+    strength - number to calculate how strong the warrior attack is
+
+Wizard:
+
+    mana - number to represent a resource the wizard consumes to cast spells
+    intelligence - number to calculate how strong the wizard spells are
+
