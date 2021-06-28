@@ -51,4 +51,16 @@ public abstract class Character { // This class can be abstract since all Charac
     public void setAlive(boolean alive) {
         isAlive = alive;
     }
+
+    // toString()
+
+    @Override
+    public String toString() {
+        return "Character{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", hp=" + hp +
+                ", isAlive=" + isAlive +
+                '}';
+    }
 }

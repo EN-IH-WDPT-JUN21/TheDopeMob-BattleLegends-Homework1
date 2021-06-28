@@ -7,22 +7,13 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
 
         Start.welcome(); // Initial message and signal for game set-up;
-        Menu.playMode(); // User selects the playing mode: human/human, human/computer or computer/computer;
-        Menu.setPlayers(); // Create players according to user choice;
+        Menu.menuControl(1); // Start game set-up step by step
+        System.out.println("Battle functionality here");
 
-        switch (GameSet.getPlayMode()) {
-            case 1:
-                Menu.createParty(GameSet.getPlayerOne()); // Create and store characters for playerOne;
-                Menu.createParty(GameSet.getPlayerTwo()); // Create and store characters for playerTwo;
-                break;
-            case 2:
-                Menu.createParty(GameSet.getPlayerOne());
-                break;
-            default:
-        }
+        // Repeat until one of the players (or both) have no characters left
+        System.out.println("The winner is ...");
+        System.out.println("Play again?");
 
-        System.out.println(GameSet.getPlayerOne());
-        System.out.println(GameSet.getPlayerTwo());
 
     }
 }
