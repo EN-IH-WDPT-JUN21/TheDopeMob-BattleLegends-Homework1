@@ -1,7 +1,9 @@
 package com.ironhack.game.play;
 
 import java.util.ArrayList;
-import com.ironhack.game.character.Character;
+//Imported mockup characters for integration, the correct class is commented out
+import com.ironhack.game.battle.mockup.Character;
+//import com.ironhack.game.character.Character;
 
 public class Player {
     // Instance fields
@@ -21,6 +23,11 @@ public class Player {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    //Get party added by Wojtek Drygas, needed for match class
+    public ArrayList<Character> getParty() {
+        return party;
     }
 
     // Method to add characters to player party. Used by the classes in party module

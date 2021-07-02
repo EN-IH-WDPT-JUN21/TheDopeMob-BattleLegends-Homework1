@@ -21,7 +21,7 @@ public class Battle {
         return redFighter;
     }
 
-    public Result getResult() {
+    public BattleResult getResult() {
         Fightable winner;
         Fightable looser;
         boolean isTie=false;
@@ -42,6 +42,7 @@ public class Battle {
             winner=redFighter;
             looser=blueFighter;
         }
-        return new Result(winner,looser,isTie,roundCount);
+        return new BattleResult(winner,looser,isTie,roundCount);
     }
+
 }
