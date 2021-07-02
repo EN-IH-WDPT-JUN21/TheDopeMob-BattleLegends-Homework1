@@ -34,6 +34,7 @@ public class MatchResult {
     public Player getLooser() {
         return looser;
     }
+    public List<BattleResult> getBattles() { return battles; }
 
     @Override
     public String toString() {

@@ -47,14 +47,8 @@ public class Wizard extends Character {
         if (mana<MANA_USAGE)
             System.out.println(getName()+" has no stamina!");
         else {
+            System.out.println(getName()+" casts with "+getIntelligence()+" power");
             opponent.getHit(getIntelligence());
-            System.out.println(getName()+" attacked for "+getIntelligence());
         }
-    }
-
-
-    @Override
-    public String getStatus() {
-        return this.toString();
     }
 }

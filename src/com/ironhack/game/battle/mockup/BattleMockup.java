@@ -8,10 +8,10 @@ import com.ironhack.game.play.Player;
 
 public class BattleMockup {
     public static void main(String[] args) {
-        Wizard rWiz = new Wizard("1","Red-Wiz",15,20,3);
-        Warrior rWar = new Warrior("2","Red-War",25,30,2);
-        Wizard bWiz = new Wizard("1","Blue-Wiz",100,20,3);
-        Warrior bWar = new Warrior("2","Blue-War",200,30,2);
+        Wizard rWiz = new Wizard("1","Red-Wiz",15,20,5);
+        Warrior rWar = new Warrior("2","Red-War",25,30,6);
+        Wizard bWiz = new Wizard("1","Blue-Wiz",100,20,4);
+        Warrior bWar = new Warrior("2","Blue-War",200,30,5);
         Player red = new Player("Red");
         red.addCharacter(rWar);
         red.addCharacter(rWiz);
@@ -22,5 +22,10 @@ public class BattleMockup {
         MatchResult matchResult = match.getMatchResult();
         System.out.println(matchResult);
 
+        //Graveyard
+        MockupGraveyard mockup = new MockupGraveyard(matchResult);
+        mockup.printGraveyard();
+        mockup.printBattleDeaths();
     }
+
 }

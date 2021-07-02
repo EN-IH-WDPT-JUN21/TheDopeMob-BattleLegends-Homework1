@@ -35,11 +35,13 @@ public class Match {
 
     public MatchResult getMatchResult() {
         List<BattleResult> battles = new ArrayList<>();
+        int battleNo=1;
         while (playerHasAliveFighters(redPlayer) && playerHasAliveFighters(bluePlayer)){
             Fightable redFighter = getFighter(redPlayer);
             Fightable blueFighter = getFighter(bluePlayer);
-            Battle battle = new Battle(redFighter, blueFighter);
+            Battle battle = new Battle(redFighter, blueFighter, battleNo);
             battles.add(battle.getResult());
+            battleNo++;
         }
         boolean isTieMatch = !playerHasAliveFighters(redPlayer) && !playerHasAliveFighters(bluePlayer);
         Player winner = playerHasAliveFighters(redPlayer) ? redPlayer : bluePlayer;

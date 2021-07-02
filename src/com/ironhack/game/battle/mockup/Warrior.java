@@ -47,15 +47,9 @@ public class Warrior extends Character {
         if (stamina < STAMINA_USAGE)
             System.out.println(getName() + " has no stamina!");
         else {
+            System.out.println(getName() + " strikes for " + getStrength()+" power");
             opponent.getHit(getStrength());
-            System.out.println(getName() + " attacked for " + getStrength());
         }
-    }
-
-
-    @Override
-    public String getStatus() {
-        return this.toString();
     }
 }
 

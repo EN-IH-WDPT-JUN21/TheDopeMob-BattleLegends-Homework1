@@ -7,12 +7,22 @@ public class BattleResult {
     private final Fightable looser;
     private final boolean isTie;
     private final int roundCount;
+    private final int battleNo;
 
-    public BattleResult(Fightable winner, Fightable looser, boolean isTie, int roundCount) {
+    public int getRoundCount() {
+        return roundCount;
+    }
+
+    public int getBattleNo() {
+        return battleNo;
+    }
+
+    public BattleResult(Fightable winner, Fightable looser, boolean isTie, int roundCount, int battleNo) {
         this.winner = winner;
         this.looser = looser;
         this.isTie = isTie;
         this.roundCount=roundCount;
+        this.battleNo = battleNo;
 
     }
 
@@ -31,10 +41,10 @@ public class BattleResult {
 
     @Override
     public String toString() {
-        return "\nBattle Result!" +
+        return "\nBattle "+battleNo+" result!" +
                 "\nFight lasted for: "+roundCount+" rounds!"+
-                "\nWinner=" + winner.getStatus() +
-                "\nLooser=" + looser.getStatus() +
+                "\nWinner=" + winner.getName() +
+                "\nLooser=" + looser.getName() +
                 "\nIsTie=" + isTie;
     }
 }

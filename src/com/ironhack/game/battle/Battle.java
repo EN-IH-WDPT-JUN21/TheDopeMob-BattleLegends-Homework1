@@ -6,11 +6,21 @@ public class Battle {
     private final Fightable blueFighter;
     private final Fightable redFighter;
     private int roundCount;
+    private final int battleNo;
 
-    public Battle(Fightable blueFighter, Fightable redFighter) {
+    public int getBattleNo() {
+        return battleNo;
+    }
+
+    public int getRoundCount() {
+        return roundCount;
+    }
+
+    public Battle(Fightable blueFighter, Fightable redFighter, int battleNo) {
         this.blueFighter = blueFighter;
         this.redFighter = redFighter;
         roundCount=0;
+        this.battleNo = battleNo;
     }
 
     public Fightable getBlueFighter() {
@@ -22,12 +32,13 @@ public class Battle {
     }
 
     public BattleResult getResult() {
+        System.out.println("\n=====Start of battle "+battleNo+"!=====");
         Fightable winner;
         Fightable looser;
         boolean isTie=false;
         while(blueFighter.isAlive() && redFighter.isAlive()){
             roundCount++;
-            System.out.println("Starting round "+roundCount+"!");
+            System.out.println("\nStarting round "+roundCount+"!");
             redFighter.attack(blueFighter);
             blueFighter.attack(redFighter);
         }
@@ -42,7 +53,10 @@ public class Battle {
             winner=redFighter;
             looser=blueFighter;
         }
-        return new BattleResult(winner,looser,isTie,roundCount);
+        System.out.println("Battle "+battleNo+" has ended!");
+        System.out.println("Winner: "+winner.getName());
+        System.out.println("Looser: "+looser.getName());
+        return new BattleResult(winner,looser,isTie,roundCount,battleNo);
     }
 
 }
