@@ -1,7 +1,4 @@
 package com.ironhack.game.battle.mockup;
-
-import com.ironhack.game.battle.interfaces.Fightable;
-
 public class Warrior extends Character {
     //CONSTS
     private final int STAMINA_USAGE = 1;
@@ -35,15 +32,8 @@ public class Warrior extends Character {
     public void setStrength(int strength) {
         this.strength = strength;
     }
-
     @Override
-    public void getHit(int power) {
-        setHp(getHp() - power);
-        System.out.println(getName() + " got attacked for " + power + " and has " + getHp() + " hp left");
-    }
-
-    @Override
-    public void attack(Fightable opponent) {
+    public void attack(Character opponent) {
         if (stamina < STAMINA_USAGE)
             System.out.println(getName() + " has no stamina!");
         else {

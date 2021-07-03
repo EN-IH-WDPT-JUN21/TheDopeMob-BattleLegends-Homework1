@@ -1,10 +1,10 @@
 package com.ironhack.game.battle;
 
-import com.ironhack.game.battle.interfaces.Fightable;
+import com.ironhack.game.battle.mockup.Character;
 
 public class Battle {
-    private final Fightable blueFighter;
-    private final Fightable redFighter;
+    private final Character blueFighter;
+    private final Character redFighter;
     private int roundCount;
     private final int battleNo;
 
@@ -16,25 +16,25 @@ public class Battle {
         return roundCount;
     }
 
-    public Battle(Fightable blueFighter, Fightable redFighter, int battleNo) {
+    public Battle(Character blueFighter, Character redFighter, int battleNo) {
         this.blueFighter = blueFighter;
         this.redFighter = redFighter;
         roundCount=0;
         this.battleNo = battleNo;
     }
 
-    public Fightable getBlueFighter() {
+    public Character getBlueFighter() {
         return blueFighter;
     }
 
-    public Fightable getRedFighter() {
+    public Character getRedFighter() {
         return redFighter;
     }
 
     public BattleResult getResult() {
         System.out.println("\n=====Start of battle "+battleNo+"!=====");
-        Fightable winner;
-        Fightable looser;
+        Character winner;
+        Character looser;
         boolean isTie=false;
         while(blueFighter.isAlive() && redFighter.isAlive()){
             roundCount++;

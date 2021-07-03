@@ -1,6 +1,5 @@
 package com.ironhack.game.battle;
 
-import com.ironhack.game.battle.interfaces.Fightable;
 //Imported mockup characters for integration, the correct class is commented out
 import com.ironhack.game.battle.mockup.Character;
 //import com.ironhack.game.character.Character;
@@ -37,8 +36,8 @@ public class Match {
         List<BattleResult> battles = new ArrayList<>();
         int battleNo=1;
         while (playerHasAliveFighters(redPlayer) && playerHasAliveFighters(bluePlayer)){
-            Fightable redFighter = getFighter(redPlayer);
-            Fightable blueFighter = getFighter(bluePlayer);
+            Character redFighter = getFighter(redPlayer);
+            Character blueFighter = getFighter(bluePlayer);
             Battle battle = new Battle(redFighter, blueFighter, battleNo);
             battles.add(battle.getResult());
             battleNo++;
@@ -48,11 +47,11 @@ public class Match {
         Player looser = playerHasAliveFighters(redPlayer) ? bluePlayer : redPlayer;
         return new MatchResult(1,winner,looser,isTieMatch, battles);
     }
-    private Fightable getFighter(Player player){
-        Fightable nextFighter=null;
+    private Character getFighter(Player player){
+        Character nextFighter=null;
         for(Character fighter : player.getParty()){
             if (fighter.isAlive()){
-                nextFighter = (Fightable)fighter;
+                nextFighter = fighter;
                 break;
             }
         }

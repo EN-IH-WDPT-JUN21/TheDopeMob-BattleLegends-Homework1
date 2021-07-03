@@ -1,10 +1,10 @@
 package com.ironhack.game.battle;
 
-import com.ironhack.game.battle.interfaces.Fightable;
+import com.ironhack.game.battle.mockup.Character;
 
 public class BattleResult {
-    private final Fightable winner;
-    private final Fightable looser;
+    private final Character winner;
+    private final Character looser;
     private final boolean isTie;
     private final int roundCount;
     private final int battleNo;
@@ -17,7 +17,7 @@ public class BattleResult {
         return battleNo;
     }
 
-    public BattleResult(Fightable winner, Fightable looser, boolean isTie, int roundCount, int battleNo) {
+    public BattleResult(Character winner, Character looser, boolean isTie, int roundCount, int battleNo) {
         this.winner = winner;
         this.looser = looser;
         this.isTie = isTie;
@@ -26,11 +26,11 @@ public class BattleResult {
 
     }
 
-    public Fightable getWinner() {
+    public Character getWinner() {
         return winner;
     }
 
-    public Fightable getLooser() {
+    public Character getLooser() {
         return looser;
     }
 

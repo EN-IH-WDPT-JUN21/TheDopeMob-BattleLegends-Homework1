@@ -1,12 +1,10 @@
 package com.ironhack.game.battle.mockup;
 
-import com.ironhack.game.battle.Battle;
-import com.ironhack.game.battle.BattleResult;
 import com.ironhack.game.battle.Match;
 import com.ironhack.game.battle.MatchResult;
 import com.ironhack.game.play.Player;
 
-public class BattleMockup {
+public class MockupBattle {
     public static void main(String[] args) {
         Wizard rWiz = new Wizard("1","Red-Wiz",15,20,5);
         Warrior rWar = new Warrior("2","Red-War",25,30,6);

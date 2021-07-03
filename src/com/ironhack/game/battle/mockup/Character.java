@@ -1,21 +1,17 @@
 package com.ironhack.game.battle.mockup;
 
-import com.ironhack.game.battle.interfaces.Fightable;
-
-public abstract class Character implements Fightable { // This class can be abstract since all Characters will be Warriors or Wizards
+public abstract class Character { // This class can be abstract since all Characters will be Warriors or Wizards
 
     // Instance fields
     private String id; // As a string to be able to format "001" instead of "1"
     private String name;
     private int hp;
-    private boolean isAlive;
 
     // Constructor - isAlive defaults to true since all newly created characters are alive
     public Character(String id, String name, int hp) {
         setId(id);
         setName(name);
         setHp(hp);
-        this.isAlive = true;
     }
 
     // id setter and getter
@@ -51,8 +47,13 @@ public abstract class Character implements Fightable { // This class can be abst
     }
 
     public void setAlive(boolean alive) {
-        isAlive = alive;
     }
+    public void getHit(int power) {
+        setHp(getHp()-power);
+        System.out.println(getName()+" got attacked for "+power+" and has "+getHp()+" hp left");
+    }
+    public void attack(Character opponent) {}
+    
 
     // toString()
 
