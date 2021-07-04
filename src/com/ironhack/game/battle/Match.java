@@ -2,14 +2,13 @@ package com.ironhack.game.battle;
 
 import com.ironhack.game.character.Character;
 import com.ironhack.game.play.Player;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Match {
-    private final int id;
-    private final Player redPlayer;
-    private final Player bluePlayer;
+    private int id;
+    private Player redPlayer;
+    private Player bluePlayer;
 
     public Match(int id, Player redPlayer, Player bluePlayer) {
         this.id = id;
@@ -32,12 +31,12 @@ public class Match {
 
     public MatchResult getMatchResult() {
         List<BattleResult> battles = new ArrayList<>();
-        int battleNo=1;
+        int battleNo = 1;
         while (playerHasAliveFighters(redPlayer) && playerHasAliveFighters(bluePlayer)){
             Character redFighter = getFighter(redPlayer);
             Character blueFighter = getFighter(bluePlayer);
-            Battle battle = new Battle(redFighter, blueFighter, battleNo);
-            battles.add(battle.getResult());
+            Battle battle = new Battle(redFighter, blueFighter);
+
             battleNo++;
         }
         boolean isTieMatch = !playerHasAliveFighters(redPlayer) && !playerHasAliveFighters(bluePlayer);
@@ -45,6 +44,7 @@ public class Match {
         Player looser = playerHasAliveFighters(redPlayer) ? bluePlayer : redPlayer;
         return new MatchResult(1,winner,looser,isTieMatch, battles);
     }
+
     private Character getFighter(Player player){
         Character nextFighter=null;
         for(Character fighter : player.getParty()){

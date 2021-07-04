@@ -5,11 +5,11 @@ import com.ironhack.game.play.Player;
 import java.util.List;
 
 public class MatchResult {
-    private final int matchId;
-    private final Player winner;
-    private final Player looser;
-    private final boolean wasTie;
-    private final List<BattleResult> battles;
+    private int matchId;
+    private Player winner;
+    private Player looser;
+    private boolean wasTie;
+    private List<BattleResult> battles;
 
     public MatchResult(int matchId, Player winner, Player looser, boolean wasTie, List<BattleResult> battles) {
         this.matchId = matchId;
