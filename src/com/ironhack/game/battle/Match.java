@@ -8,9 +8,9 @@ import java.util.List;
 
 public class Match {
 
-    private final int id;
     private final Player redPlayer;
     private final Player bluePlayer;
+    private ArrayList<Battle> listOfBattles;
 
 
     public Match(Player player1, Player player2) {
