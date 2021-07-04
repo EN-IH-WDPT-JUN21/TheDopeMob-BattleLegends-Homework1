@@ -49,6 +49,7 @@ public class Battle {
             System.out.println("\nStarting round "+roundTotalNumber+"!");
             getPlayer2Character().defaultAttack(getPlayer1Character());
             getPlayer1Character().defaultAttack(getPlayer2Character());
+
         }
         if (!player1Character.isAlive() && !player2Character.isAlive()){
             isTie = true;
@@ -61,7 +62,8 @@ public class Battle {
             winner=getPlayer2Character();
             looser=getPlayer1Character();
         }
-        System.out.println("Battle "+ battleNumber +" has ended!");
+
+        System.out.println("Battle "+battleNumber+" has ended!");
         System.out.println("Winner: "+winner.getName());
         System.out.println("Looser: "+looser.getName());
 

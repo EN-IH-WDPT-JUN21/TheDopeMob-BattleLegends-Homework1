@@ -1,14 +1,17 @@
 package com.ironhack.game.battle;
 
+
 import com.ironhack.game.character.Character;
 import com.ironhack.game.play.Player;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Match {
-    private Player player1;
-    private Player player2;
-    private ArrayList<Battle> listOfBattles;
+
+    private final int id;
+    private final Player redPlayer;
+    private final Player bluePlayer;
+
 
     public Match(Player player1, Player player2) {
         this.player1 = player1;
@@ -25,6 +28,7 @@ public class Match {
 
     public MatchResult getMatchResult() {
         List<BattleResult> battles = new ArrayList<>();
+
         int battleNo = 1;
         while (playerHasAliveFighters(player1) && playerHasAliveFighters(player2)){
             Character redFighter = getFighter(player1);
