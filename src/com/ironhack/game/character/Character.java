@@ -52,6 +52,12 @@ public abstract class Character { // This class can be abstract since all Charac
         isAlive = alive;
     }
 
+    public void getHit(int power) {
+        setHp(getHp()-power);
+        System.out.println(getName()+" got attacked for "+power+" and has "+getHp()+" hp left");
+    }
+    public void attack(Character opponent) {}
+
     // toString()
 
     @Override

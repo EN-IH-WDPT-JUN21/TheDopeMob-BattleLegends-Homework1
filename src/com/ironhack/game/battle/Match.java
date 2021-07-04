@@ -1,8 +1,6 @@
 package com.ironhack.game.battle;
 
-//Imported mockup characters for integration, the correct class is commented out
-import com.ironhack.game.battle.mockup.Character;
-//import com.ironhack.game.character.Character;
+import com.ironhack.game.character.Character;
 import com.ironhack.game.play.Player;
 
 import java.util.ArrayList;

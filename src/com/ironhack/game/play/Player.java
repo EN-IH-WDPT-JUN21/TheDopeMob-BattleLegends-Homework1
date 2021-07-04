@@ -1,9 +1,7 @@
 package com.ironhack.game.play;
 
 import java.util.ArrayList;
-//Imported mockup characters for integration, the correct class is commented out
-import com.ironhack.game.battle.mockup.Character;
-//import com.ironhack.game.character.Character;
+import com.ironhack.game.character.Character;
 
 public class Player {
     // Instance fields

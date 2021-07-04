@@ -1,6 +1,6 @@
 package com.ironhack.game.battle;
 
-import com.ironhack.game.battle.mockup.Character;
+import com.ironhack.game.character.Character;
 
 public class Battle {
     private final Character blueFighter;

@@ -140,13 +140,8 @@ public abstract class Menu {
 
         switch (userPartyOption) {
             case 1:
-
                 CreatePartyManually partyCreation = new CreatePartyManually();
-                partyCreation.createCharacterManually();
-
-
-
-
+                partyCreation.createPartyManually(player);
                 break;
             case 2:
                 ImportParty.create(player);
