@@ -5,7 +5,7 @@ import com.ironhack.game.play.Player;
 
 public class Battle {
     // STATIC FIELDS
-    private int battleTotalNumber = 0;
+    private static int battleTotalNumber = 0;
     // INSTANCE FIELDS
     private int roundTotalNumber;
     private int battleNumber;
@@ -52,7 +52,7 @@ public class Battle {
 
         }
         if (!player1Character.isAlive() && !player2Character.isAlive()){
-            isTie=true;
+            isTie = true;
         }
         if (player1Character.isAlive()){
             winner = getPlayer1Character();
