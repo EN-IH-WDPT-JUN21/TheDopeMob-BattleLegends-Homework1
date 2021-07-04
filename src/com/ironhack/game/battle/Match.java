@@ -8,8 +8,8 @@ import java.util.List;
 
 public class Match {
 
-    private final Player redPlayer;
-    private final Player bluePlayer;
+    private final Player player1;
+    private final Player player2;
     private ArrayList<Battle> listOfBattles;
 
 
