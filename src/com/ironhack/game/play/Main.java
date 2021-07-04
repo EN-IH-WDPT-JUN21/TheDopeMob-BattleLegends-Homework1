@@ -13,7 +13,5 @@ public class Main {
         // Repeat until one of the players (or both) have no characters left
         System.out.println("The winner is ...");
         System.out.println("Play again?");
-
-
     }
 }

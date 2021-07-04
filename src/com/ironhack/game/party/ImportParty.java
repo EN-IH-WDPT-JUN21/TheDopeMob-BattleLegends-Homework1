@@ -9,8 +9,6 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public abstract class ImportParty {
-    private static String id;
-    private static int counter = 0;
 
     public static void create(Player player) throws FileNotFoundException {
 
@@ -25,24 +23,13 @@ public abstract class ImportParty {
             updateCounter();
 
             if (type.equals("Warrior")) {
-                Warrior warrior = new Warrior(id, name, HP, resource, attack);
+                Warrior warrior = new Warrior(name, HP, resource, attack);
                 player.addCharacter(warrior);
             } else if (type.equals("Wizard")) {
-                Wizard wizard = new Wizard(id, name, HP, resource, attack);
+                Wizard wizard = new Wizard(name, HP, resource, attack);
                 player.addCharacter(wizard);
             }
         }
         scannerCSV.close();
-    }
-
-    public static void updateCounter() {
-        counter++;
-        if(counter < 10) {
-            ImportParty.id = "00" + counter;
-        } else if(counter >= 9) {
-            ImportParty.id = "0" + counter;
-        } else {
-            ImportParty.id = String.valueOf(counter);
-        }
     }
 }
