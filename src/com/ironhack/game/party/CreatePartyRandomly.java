@@ -1,87 +1,49 @@
 package com.ironhack.game.party;
 
+import com.ironhack.game.character.Warrior;
+import com.ironhack.game.character.Wizard;
+import com.ironhack.game.play.Player;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class CreatePartyRandomly {
-    //Variables necessary to create 2 parties and fulfill them with 10 fighters each
-    private int partyNumber = 2;
     private int partySizeLimit = 10;
 
-    //Variables picked randomly:
     private String nameTemp;
-    private int characterClassTemp; // (1 = com.ironhack.game.character.Warrior, 2 = com.ironhack.game.character.Wizard)
-    private int hpTemp; //(range 100-200 for warriors and 50-100 for wizards)
-    private int staminaTemp; //(range 10-50)
-    private int strengthTemp; //(range 1-10)
-    private int manaTemp; //(range 10-50)
-    private int intelligenceTemp; //(range 1-50)
+    private int characterClassTemp; //(1 = Warrior, 2 = Wizard)
+    private int hpTemp;             //(range 100-200 for warriors and 50-100 for wizards)
+    private int staminaTemp;        //(range 10-50)
+    private int strengthTemp;       //(range 1-10)
+    private int manaTemp;           //(range 10-50)
+    private int intelligenceTemp;   //(range 1-50)
 
-    /*
-    While a Fighter object is created default variables which should be set are:
-    - int id++ (original id = 1);
-    - isAlive = true;
-     */
-
-    //Array of random fighter names:
+    //Array of random fighter names
     String[] nameArray = {"Lydan", "Syrin", "Ptorik", "Joz", "Varog", "Gethrod", "Hezra", "Feron",
-                            "Ophni", "Colborn", "Fintis", "Gatlin", "Jinto", "Hagalbar", "Krinn",
-                            "Lenox", "Revvyn", "Hodus", "Dimian", "Paskel", "Kontas", "Weston",
-                            "Azamarr", "Jather", "Tekren", "Jareth", "Adon"};
+            "Ophni", "Colborn", "Fintis", "Gatlin", "Jinto", "Hagalbar", "Krinn",
+            "Lenox", "Revvyn", "Hodus", "Dimian", "Paskel", "Kontas", "Weston",
+            "Azamarr", "Jather", "Tekren", "Jareth", "Adon"};
 
-    //Creating parties manually
-    public void createCharacterRandomly() {
-        //Creating 2 party ArrayLists
-        ArrayList<Character> party1 = new ArrayList<Character>();
-        ArrayList<Character> party2 = new ArrayList<Character>();
+    //Creating parties randomly
+    public void createPartyRandomly(Player player) {
 
-                //Player sets the size of parties
-                setPartySizeLimit();
+        //Player sets the size of parties
+        setPartySizeLimit();
 
-            //Creating fighters and adding them to party1 ArrayLists
-            for (int partySizeCounter = 0; partySizeCounter < partySizeLimit; partySizeCounter++) {
-
-                //Setting random name
-                setName();
-
-                //Checking is such name exists among already created fighters and adding "Jr" at the end
-//                for(int i = 0; i < party1.size(); i++){
-//                    if(nameTemp == party1.get(i).getName()){
-//                        nameTemp = nameTemp + " Jr";
-//                    }
-//                }
-
-                //Setting random parameters
-                setCharacterClass();
-                setHp();
-                setStamina();
-                setStrength();
-                setMana();
-                setIntelligence();
-
-//                //Fighter objects are created and added to party ArrayLists
-//                if (characterClassTemp == 1){
-//                    party1.add(new Warrior(nameTemp, hpTemp, staminaTemp, strengthTemp));
-//                }else if(characterClassTemp == 2){
-//                    party1.add(new Wizard(nameTemp, hpTemp, manaTemp, intelligenceTemp));
-//                }
-//                Access to hero object method toString to summarize a new character;
-            }
-
-        //Creating fighters and adding them to party2 ArrayLists
+        //Creating fighters and adding them to party1 ArrayLists
         for (int partySizeCounter = 0; partySizeCounter < partySizeLimit; partySizeCounter++) {
 
             //Setting random name
             setName();
 
             //Checking is such name exists among already created fighters and adding "Jr" at the end
-//            for(int i = 0; i < party2.size(); i++){
-//                if(nameTemp == party2.get(i).getName()){
-//                    nameTemp = nameTemp + " Jr";
-//                }
-//            }
+            for (int i = 0; i < player.getParty().size(); i++) {
+                if (nameTemp.equals(player.getParty().get(i).getName())) {
+                    nameTemp = nameTemp + " Jr";
+                }
+            }
 
             //Setting random parameters
             setCharacterClass();
@@ -92,16 +54,14 @@ public class CreatePartyRandomly {
             setIntelligence();
 
             //Fighter objects are created and added to party ArrayLists
-//            if (characterClassTemp == 1){
-//                party2.add(new Warrior(nameTemp, hpTemp, staminaTemp, strengthTemp));
-//            }else if(characterClassTemp == 2){
-//                party2.add(new Wizard(nameTemp, hpTemp, manaTemp, intelligenceTemp));
-//            }
-////                Access to hero object method toString to summarize a new character;
+            if (characterClassTemp == 1) {
+                player.addCharacter(new Warrior(nameTemp, hpTemp, staminaTemp, strengthTemp));
+            } else if (characterClassTemp == 2) {
+                player.addCharacter(new Wizard(nameTemp, hpTemp, manaTemp, intelligenceTemp));
+            }
+//                Access to hero object method toString to summarize a new character;
         }
-
-        System.out.println("\nAll fighters were gathered together. The battle shell start...");
-//        Access to the Battle class method to start a battle
+        System.out.println("\nComputer's party was created successfully");
     }
 
     //Set >>partySizeLimit<<
@@ -110,8 +70,9 @@ public class CreatePartyRandomly {
 
         Scanner scanner = new Scanner(System.in);
 
+//        Must add correct input value validation
         partySizeLimit = scanner.nextInt();
-        System.out.println("\nParties' size is set to " + partySizeLimit + " fighters each.");
+        System.out.println("\nParty's size is set to " + partySizeLimit + " fighters each.");
         return partySizeLimit;
     }
 
@@ -144,7 +105,7 @@ public class CreatePartyRandomly {
         return hpTemp;
     }
 
-    //com.ironhack.game.character.Warrior attributes
+    //Warrior attributes
     //Random selection of character's >>stamina<<
     public int setStamina() {
 
@@ -162,7 +123,7 @@ public class CreatePartyRandomly {
         return strengthTemp;
     }
 
-    //com.ironhack.game.character.Wizard attributes
+    //Wizard attributes
     //Random selection of character's >>mana<<
     public int setMana() {
         if (characterClassTemp == 2) {

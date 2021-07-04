@@ -8,6 +8,7 @@ public class Player {
     private String name;
     private ArrayList<Character> party;
 
+
     // Constructor
     public Player(String name) {
         this.name = name;
@@ -21,6 +22,15 @@ public class Player {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    // party getter and setter
+    public ArrayList<Character> getParty() {
+        return party;
+    }
+
+    public void setParty(ArrayList<Character> party) {
+        this.party = party;
     }
 
     // Method to add characters to player party. Used by the classes in party module

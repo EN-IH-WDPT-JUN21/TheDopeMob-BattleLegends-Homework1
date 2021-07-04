@@ -3,25 +3,25 @@ package com.ironhack.game.character;
 public abstract class Character { // This class can be abstract since all Characters will be Warriors or Wizards
 
     // Instance fields
-    private String id; // As a string to be able to format "001" instead of "1"
+    private int id;
+    private static int idCounter = 1;
     private String name;
     private int hp;
-    private boolean isAlive;
+    private boolean isAlive = true;
 
     // Constructor - isAlive defaults to true since all newly created characters are alive
-    public Character(String id, String name, int hp) {
-        setId(id);
+    public Character(String name, int hp) {
         setName(name);
         setHp(hp);
-        this.isAlive = true;
+        id = idCounter;
+        idCounter++;
     }
 
-    // id setter and getter
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -56,7 +56,7 @@ public abstract class Character { // This class can be abstract since all Charac
 
     @Override
     public String toString() {
-        return "Character{" +
+        return "\nCharacter{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", hp=" + hp +
