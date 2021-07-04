@@ -1,7 +1,8 @@
 package com.ironhack.game.party;
-
-import com.ironhack.game.character.Warrior;
-import com.ironhack.game.character.Wizard;
+//imported mockup classes for integration purposes, imports used in the final version commented out
+import com.ironhack.game.battle.mockup.*;
+//import com.ironhack.game.character.Warrior;
+//import com.ironhack.game.character.Wizard;
 import com.ironhack.game.play.Player;
 import java.io.File;
 import java.io.FileNotFoundException;

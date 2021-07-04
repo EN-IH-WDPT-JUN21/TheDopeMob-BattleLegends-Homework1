@@ -1,7 +1,5 @@
 package com.ironhack.game.battle.mockup;
 
-import com.ironhack.game.battle.interfaces.Fightable;
-
 public class Wizard extends Character {
     //CONSTS
     private final int MANA_USAGE=1;
@@ -36,25 +34,17 @@ public class Wizard extends Character {
         Intelligence = intelligence;
     }
 
-    @Override
     public void getHit(int power) {
         setHp(getHp()-power);
         System.out.println(getName()+" got attacked for "+power+" and has "+getHp()+" hp left");
     }
-
     @Override
-    public void attack(Fightable opponent) {
+    public void attack(Character opponent) {
         if (mana<MANA_USAGE)
             System.out.println(getName()+" has no stamina!");
         else {
+            System.out.println(getName()+" casts with "+getIntelligence()+" power");
             opponent.getHit(getIntelligence());
-            System.out.println(getName()+" attacked for "+getIntelligence());
         }
-    }
-
-
-    @Override
-    public String getStatus() {
-        return this.toString();
     }
 }

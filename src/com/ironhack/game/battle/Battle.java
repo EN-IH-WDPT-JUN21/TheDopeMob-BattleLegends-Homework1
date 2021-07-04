@@ -1,33 +1,44 @@
 package com.ironhack.game.battle;
 
-import com.ironhack.game.battle.interfaces.Fightable;
+import com.ironhack.game.battle.mockup.Character;
 
 public class Battle {
-    private final Fightable blueFighter;
-    private final Fightable redFighter;
+    private final Character blueFighter;
+    private final Character redFighter;
     private int roundCount;
+    private final int battleNo;
 
-    public Battle(Fightable blueFighter, Fightable redFighter) {
+    public int getBattleNo() {
+        return battleNo;
+    }
+
+    public int getRoundCount() {
+        return roundCount;
+    }
+
+    public Battle(Character blueFighter, Character redFighter, int battleNo) {
         this.blueFighter = blueFighter;
         this.redFighter = redFighter;
         roundCount=0;
+        this.battleNo = battleNo;
     }
 
-    public Fightable getBlueFighter() {
+    public Character getBlueFighter() {
         return blueFighter;
     }
 
-    public Fightable getRedFighter() {
+    public Character getRedFighter() {
         return redFighter;
     }
 
-    public Result getResult() {
-        Fightable winner;
-        Fightable looser;
+    public BattleResult getResult() {
+        System.out.println("\n=====Start of battle "+battleNo+"!=====");
+        Character winner;
+        Character looser;
         boolean isTie=false;
         while(blueFighter.isAlive() && redFighter.isAlive()){
             roundCount++;
-            System.out.println("Starting round "+roundCount+"!");
+            System.out.println("\nStarting round "+roundCount+"!");
             redFighter.attack(blueFighter);
             blueFighter.attack(redFighter);
         }
@@ -42,6 +53,10 @@ public class Battle {
             winner=redFighter;
             looser=blueFighter;
         }
-        return new Result(winner,looser,isTie,roundCount);
+        System.out.println("Battle "+battleNo+" has ended!");
+        System.out.println("Winner: "+winner.getName());
+        System.out.println("Looser: "+looser.getName());
+        return new BattleResult(winner,looser,isTie,roundCount,battleNo);
     }
+
 }
