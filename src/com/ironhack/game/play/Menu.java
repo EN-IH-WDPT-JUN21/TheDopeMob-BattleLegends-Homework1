@@ -1,6 +1,10 @@
 package com.ironhack.game.play;
 
 import com.ironhack.game.party.CreatePartyManually;
+
+
+import com.ironhack.game.party.CreatePartyRandomly;
+
 import com.ironhack.game.party.ImportParty;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -46,7 +50,12 @@ public abstract class Menu {
     }
 
     public static void playMode() {
-        System.out.println("How do you want to play?\n1) Player vs Player\n2) Player vs Computer\n3) Computer vs Computer");
+        System.out.println("How do you want to play?");
+        System.out.println("┎---------------------------------------------┒");
+        System.out.println("│[1] Player vs Player                         │");
+        System.out.println("│[2] Player vs Computer                       │");
+        System.out.println("│[3] Computer vs Computer                     │");
+        System.out.println("┖---------------------------------------------┚");
         Scanner playModeScanner = new Scanner(System.in);
         // while loop to only accept valid values
         while(true){
@@ -57,8 +66,8 @@ public abstract class Menu {
                     userModeSelection.equals("3"))   // Computer vs Computer
             {
             GameSet.setPlayMode(Integer.parseInt(userModeSelection));
-            break;
             }
+            break;
         }
     }
 
@@ -66,27 +75,29 @@ public abstract class Menu {
         Scanner setNameScanner = new Scanner(System.in);
         switch (GameSet.getPlayMode()) {
             case 1:
-                System.out.println("Enter player 1 name:");
+                System.out.println("Enter Player 1 name:");
                 String playerOneName = setNameScanner.nextLine();
                 GameSet.setPlayerOne(new Player(playerOneName));
-                System.out.println("Enter player 2 name:");
+                System.out.println("Enter Player 2 name:");
                 String playerTwoName = setNameScanner.nextLine();
                 GameSet.setPlayerTwo(new Player(playerTwoName));
                 break;
 
             case 2:
-                System.out.println("Enter player 1 name:");
+                System.out.println("Enter Player 1 name:");
                 String playerOneName2 = setNameScanner.nextLine();
                 GameSet.setPlayerOne(new Player(playerOneName2));
+                GameSet.setComputerOne(new Player("Computer"));
                 // Initialize player2 as random computer player
                 break;
 
             case 3:
+                GameSet.setComputerOne(new Player("Computer 1"));
+                GameSet.setComputerTwo(new Player("Computer 2"));
                 System.out.println("Enjoy the battle!");
                 // Initialize player1 and player2 as random computer players
                 break;
         }
-
 
     }
     // Calls createParty according to case
@@ -98,14 +109,21 @@ public abstract class Menu {
                 break;
             case 2:
                 createParty(GameSet.getPlayerOne());
+                createParty(GameSet.getComputerOne());
                 break;
             default:
-                System.out.println("Create two random parties...");
+                createParty(GameSet.getComputerOne());
+                createParty(GameSet.getComputerTwo());
         }
     }
     // Called by createPartyByPlayMode() BETTER NAME CREATEPARTYHELPER
     public static void createParty(Player player) throws FileNotFoundException {
-        System.out.println(player.getName() + ", create your party!\n1) Manually\n2) Import\n3) Random");
+        System.out.println(player.getName() + ", create your party!");
+        System.out.println("┎---------------------------------------------┒");
+        System.out.println("│[1] Manually                                 │");
+        System.out.println("│[2] Import                                   │");
+        System.out.println("│[3] Randomly                                 │");
+        System.out.println("┖---------------------------------------------┚");
         Scanner createPartyScanner = new Scanner(System.in);
         int userPartyOption;
         while(true) { // To ensure user inputs a valid choice
@@ -122,14 +140,20 @@ public abstract class Menu {
 
         switch (userPartyOption) {
             case 1:
+
                 CreatePartyManually partyCreation = new CreatePartyManually();
                 partyCreation.createCharacterManually();
+
+
+
+
                 break;
             case 2:
                 ImportParty.create(player);
                 break;
             case 3:
-                System.out.println("Random party"); // Random party should be called here
+                CreatePartyRandomly partyRandomly = new CreatePartyRandomly();
+                partyRandomly.createPartyRandomly(player);
                 break;
         }
     }

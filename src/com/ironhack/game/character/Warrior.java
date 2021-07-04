@@ -7,8 +7,8 @@ public class Warrior extends Character {
     private int strength;
 
     // Constructor
-    public Warrior(String id, String name, int hp, int stamina, int strength) {
-        super(id, name, hp);
+    public Warrior(String name, int hp, int stamina, int strength) {
+        super(name, hp);
         setStamina(stamina);
         setStrength(strength);
     }
