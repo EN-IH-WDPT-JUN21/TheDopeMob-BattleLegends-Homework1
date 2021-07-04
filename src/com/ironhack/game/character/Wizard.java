@@ -1,6 +1,6 @@
 package com.ironhack.game.character;
 
-public class Wizard extends Character {
+public class Wizard extends Character implements Attacker {
 
     // Instance fields
     private int mana;
@@ -31,4 +31,21 @@ public class Wizard extends Character {
     public void setIntelligence(int intelligence) {
         Intelligence = intelligence;
     }
+
+    //---- ATTACKER INTERFACE METHODS
+    @Override
+    public void defaultAttack(Character opponent) {
+        if(this.getMana() < 5) {
+            secondaryAttack(opponent);
+        } else {
+            opponent.setHp(opponent.getHp() - this.getIntelligence());
+            this.setMana(this.getMana() - 5);
+        }
+    }
+    @Override
+    public void secondaryAttack(Character opponent) {
+        opponent.setHp(opponent.getHp() - 2);
+        this.setMana(this.getMana() + 1);
+    }
+
 }

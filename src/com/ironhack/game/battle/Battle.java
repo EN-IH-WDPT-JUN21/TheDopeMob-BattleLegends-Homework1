@@ -1,62 +1,72 @@
 package com.ironhack.game.battle;
 
-import com.ironhack.game.battle.mockup.Character;
+import com.ironhack.game.character.Character;
+import com.ironhack.game.play.Player;
 
 public class Battle {
-    private final Character blueFighter;
-    private final Character redFighter;
-    private int roundCount;
-    private final int battleNo;
-
+    // STATIC FIELDS
+    private int battleTotalNumber = 0;
+    // INSTANCE FIELDS
+    private int roundTotalNumber;
+    private int battleNumber;
+    private Character player1Character;
+    private Character player2Character;
+    // CONSTRUCTOR
+    public Battle(Character player1Character, Character player2Character) {
+        setBattleNumber();
+        this.player1Character = player1Character;
+        this.player2Character = player2Character;
+    }
+    
+    public void setBattleNumber() {
+        this.battleNumber = battleTotalNumber + 1;
+        battleTotalNumber++;
+    }
+    
     public int getBattleNo() {
-        return battleNo;
+        return battleNumber;
     }
 
-    public int getRoundCount() {
-        return roundCount;
+    public int getRoundTotalNumber() {
+        return roundTotalNumber;
     }
 
-    public Battle(Character blueFighter, Character redFighter, int battleNo) {
-        this.blueFighter = blueFighter;
-        this.redFighter = redFighter;
-        roundCount=0;
-        this.battleNo = battleNo;
+    public Character getPlayer1Character() {
+        return player1Character;
     }
 
-    public Character getBlueFighter() {
-        return blueFighter;
+    public Character getPlayer2Character() {
+        return player2Character;
     }
 
-    public Character getRedFighter() {
-        return redFighter;
-    }
-
-    public BattleResult getResult() {
-        System.out.println("\n=====Start of battle "+battleNo+"!=====");
+    public void startBattle() {
+        System.out.println("\n=====Start of battle "+battleNumber+"!=====");
         Character winner;
         Character looser;
-        boolean isTie=false;
-        while(blueFighter.isAlive() && redFighter.isAlive()){
-            roundCount++;
-            System.out.println("\nStarting round "+roundCount+"!");
-            redFighter.attack(blueFighter);
-            blueFighter.attack(redFighter);
+        boolean isTie = false;
+        while(getPlayer1Character().isAlive() && getPlayer2Character().isAlive()){
+            roundTotalNumber++;
+            System.out.println("\nStarting round "+roundTotalNumber+"!");
+            getPlayer2Character().defaultAttack(getPlayer1Character());
+            getPlayer1Character().defaultAttack(getPlayer2Character());
+
         }
-        if (!blueFighter.isAlive() && !redFighter.isAlive()){
+        if (!player1Character.isAlive() && !player2Character.isAlive()){
             isTie=true;
         }
-        if (blueFighter.isAlive()){
-            winner = blueFighter;
-            looser = redFighter;
+        if (player1Character.isAlive()){
+            winner = getPlayer1Character();
+            looser = getPlayer2Character();
         }
         else{
-            winner=redFighter;
-            looser=blueFighter;
+            winner=getPlayer2Character();
+            looser=getPlayer1Character();
         }
-        System.out.println("Battle "+battleNo+" has ended!");
+
+        System.out.println("Battle "+battleNumber+" has ended!");
         System.out.println("Winner: "+winner.getName());
         System.out.println("Looser: "+looser.getName());
-        return new BattleResult(winner,looser,isTie,roundCount,battleNo);
+
     }
 
 }

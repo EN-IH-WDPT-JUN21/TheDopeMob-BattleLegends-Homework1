@@ -52,8 +52,11 @@ public abstract class Character { // This class can be abstract since all Charac
         isAlive = alive;
     }
 
-    // toString()
+    public void defaultAttack(Character opponent) {
+       // Overridden by sub-classes
+    }
 
+    // toString()
     @Override
     public String toString() {
         return "\nCharacter{" +

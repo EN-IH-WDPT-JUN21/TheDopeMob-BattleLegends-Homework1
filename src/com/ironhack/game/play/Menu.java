@@ -1,35 +1,41 @@
 package com.ironhack.game.play;
 
 import com.ironhack.game.party.CreatePartyManually;
-import com.ironhack.game.party.CreatePartyRandomly;
-import com.ironhack.game.party.ImportParty;
 
+
+import com.ironhack.game.party.CreatePartyRandomly;
+
+import com.ironhack.game.party.ImportParty;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.function.Function;
 
 public abstract class Menu {
 
     public static void menuControl(int menuStep) throws FileNotFoundException {
         boolean menuControl = true;
-        while(menuControl) { // Allows for game setting, stepping back or quiting almost at any moment
-                             // Will come out of loop once game setting is finished or by user input: quit
+        while(menuControl) {
+
+            //----INNER CONDITION INSIDE LOOP TO SET GAME
+            //----GOES FORWARD EXCEPT IF USER ENTERS BACK OR QUIT
             if(menuStep == 1) {
                 playMode();
-                menuStep++;
+                menuStep++; // After each step, method continues to ask user to press enter, the loops back
             } else if (menuStep == 2) {
                 setPlayers();
                 menuStep++;
             } else if (menuStep == 3) {
-                Menu.createPartyByPlayMode();
+                createPartyByPlayMode();
                 menuStep++;
             } else if (menuStep == 4) {
                 System.out.println("!!!BATTLE!!!");
                 menuControl = false;
             }
+
+            //---- CONTINUES HERE AFTER EACH IF STATEMENT
             System.out.println("Press enter to continue");
             Scanner scanner = new Scanner(System.in);
             String userInput = scanner.nextLine();
+                // If user enters: quit - closes program / back - go back to last step of game set-up
             switch (userInput) {
                 case "quit":
                     System.out.println("Quit game");
@@ -39,7 +45,6 @@ public abstract class Menu {
                     menuStep--;
                     System.out.println("Go to previous stage");
                     break;
-                default:
             }
         }
     }
@@ -111,7 +116,7 @@ public abstract class Menu {
                 createParty(GameSet.getComputerTwo());
         }
     }
-    // Called by createPartyByPlayMode()
+    // Called by createPartyByPlayMode() BETTER NAME CREATEPARTYHELPER
     public static void createParty(Player player) throws FileNotFoundException {
         System.out.println(player.getName() + ", create your party!");
         System.out.println("┎---------------------------------------------┒");
@@ -122,7 +127,7 @@ public abstract class Menu {
         Scanner createPartyScanner = new Scanner(System.in);
         int userPartyOption;
         while(true) { // To ensure user inputs a valid choice
-            String partyOption = createPartyScanner.nextLine();
+            String partyOption = createPartyScanner.nextLine(); // COULD USE INT AND LESS CODE
 
             if (partyOption.equals("1") ||
                     partyOption.equals("2") ||
@@ -135,8 +140,8 @@ public abstract class Menu {
 
         switch (userPartyOption) {
             case 1:
-                CreatePartyManually partyManually = new CreatePartyManually();
-                partyManually.createPartyManually(player);
+                CreatePartyManually partyCreation = new CreatePartyManually();
+                partyCreation.createPartyManually(player);
                 break;
             case 2:
                 ImportParty.create(player);

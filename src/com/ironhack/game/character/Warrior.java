@@ -1,6 +1,6 @@
 package com.ironhack.game.character;
 
-public class Warrior extends Character {
+public class Warrior extends Character implements Attacker {
 
     // Instance fields
     private int stamina;
@@ -29,6 +29,20 @@ public class Warrior extends Character {
     }
 
     public void setStrength(int strength) {this.strength = strength;}
+
+    //---- ATTACKER INTERFACE METHODS
+    public void defaultAttack(Character opponent) {
+        if(this.getStamina() < 5) {
+            secondaryAttack(opponent);
+        } else {
+            opponent.setHp(opponent.getHp() - this.getStrength());
+            this.setStamina(this.getStamina() - 5);
+        }
+    }
+    public void secondaryAttack(Character opponent) {
+        opponent.setHp(opponent.getHp() - this.getStrength() / 2);
+        this.setStamina(this.getStamina() + 1);
+    }
 }
 
 
