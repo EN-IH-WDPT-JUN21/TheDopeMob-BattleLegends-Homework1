@@ -5,7 +5,7 @@ public class GameSet {
     private static Player playerOne;
     private static Player playerTwo;
 
-    // playMode getter and setter
+    // playMode getter and settergit branch
     public static int getPlayMode() {
         return playMode;
     }
