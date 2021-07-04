@@ -24,7 +24,7 @@ public class CreatePartyManually {
         setPartySizeLimit();
 
         //Creating fighters and adding them to party of Player 1 ArrayLists
-        for (int partySizeCounter = 0; partySizeCounter < partySizeLimit + 1; partySizeCounter++) {
+        for (int partySizeCounter = 1; partySizeCounter < partySizeLimit + 1; partySizeCounter++) {
 
             System.out.println("\nLet's create a Fighter #" + partySizeCounter + ":");
 
