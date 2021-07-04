@@ -2,6 +2,7 @@ package com.ironhack.game.battle;
 
 import com.ironhack.game.character.Character;
 
+
 public class BattleResult {
     private final Character winner;
     private final Character looser;
