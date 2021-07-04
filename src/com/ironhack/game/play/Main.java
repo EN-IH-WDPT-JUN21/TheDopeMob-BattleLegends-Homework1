@@ -12,8 +12,10 @@ public class Main {
 
         Start.welcome(); // Initial message and signal for game set-up;
         Menu.menuControl(1); // Start game set-up step by step
-        Battle battle = new Battle(GameSet.getPlayerOne().getCharacter(0), GameSet.getPlayerTwo().getCharacter(0));
-        battle.startBattle();
+
+
+        Match match = new Match(GameSet.getPlayerOne(), GameSet.getPlayerTwo());
+        System.out.println(match.getMatchResult());
 
 
         // Repeat until one of the players (or both) have no characters left

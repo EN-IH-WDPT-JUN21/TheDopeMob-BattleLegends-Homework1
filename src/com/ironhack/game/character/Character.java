@@ -45,7 +45,11 @@ public abstract class Character { // This class can be abstract since all Charac
 
     // isAlive setter and getter
     public boolean isAlive() {
-        return isAlive;
+        if(this.getHp() <= 0) {
+            this.isAlive = false;
+            return false;
+        }
+        return true;
     }
 
     public void setAlive(boolean alive) {
