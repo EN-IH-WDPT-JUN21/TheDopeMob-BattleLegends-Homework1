@@ -1,6 +1,7 @@
 package com.ironhack.game.battle;
 
-import com.ironhack.game.battle.mockup.Character;
+import com.ironhack.game.character.Character;
+
 
 public class BattleResult {
     private final Character winner;

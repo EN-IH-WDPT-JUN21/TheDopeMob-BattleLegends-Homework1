@@ -5,6 +5,7 @@ import com.ironhack.game.play.Player;
 import java.util.List;
 
 public class MatchResult {
+
     private final int matchId;
     private final Player winner;
     private final Player looser;

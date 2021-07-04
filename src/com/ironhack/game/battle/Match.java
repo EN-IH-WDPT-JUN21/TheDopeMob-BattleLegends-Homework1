@@ -1,54 +1,51 @@
 package com.ironhack.game.battle;
 
-//Imported mockup characters for integration, the correct class is commented out
-import com.ironhack.game.battle.mockup.Character;
-//import com.ironhack.game.character.Character;
-import com.ironhack.game.play.Player;
 
+import com.ironhack.game.character.Character;
+import com.ironhack.game.play.Player;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Match {
-    private final int id;
+
     private final Player redPlayer;
     private final Player bluePlayer;
+    private ArrayList<Battle> listOfBattles;
 
-    public Match(int id, Player redPlayer, Player bluePlayer) {
-        this.id = id;
-        this.redPlayer = redPlayer;
-        this.bluePlayer = bluePlayer;
+
+    public Match(Player player1, Player player2) {
+        this.player1 = player1;
+        this.player2 = player2;
     }
 
-    public int getId() {
-        return id;
+    public Player getplayer1() {
+        return player1;
     }
 
-    public Player getRedPlayer() {
-        return redPlayer;
-    }
-
-
-    public Player getBluePlayer() {
-        return bluePlayer;
+    public Player getplayer2() {
+        return player2;
     }
 
     public MatchResult getMatchResult() {
         List<BattleResult> battles = new ArrayList<>();
-        int battleNo=1;
-        while (playerHasAliveFighters(redPlayer) && playerHasAliveFighters(bluePlayer)){
-            Character redFighter = getFighter(redPlayer);
-            Character blueFighter = getFighter(bluePlayer);
-            Battle battle = new Battle(redFighter, blueFighter, battleNo);
-            battles.add(battle.getResult());
+
+        int battleNo = 1;
+        while (playerHasAliveFighters(player1) && playerHasAliveFighters(player2)){
+            Character redFighter = getFighter(player1);
+            Character blueFighter = getFighter(player2);
+            Battle battle = new Battle(redFighter, blueFighter);
+            battle.startBattle();
+
             battleNo++;
         }
-        boolean isTieMatch = !playerHasAliveFighters(redPlayer) && !playerHasAliveFighters(bluePlayer);
-        Player winner = playerHasAliveFighters(redPlayer) ? redPlayer : bluePlayer;
-        Player looser = playerHasAliveFighters(redPlayer) ? bluePlayer : redPlayer;
+        boolean isTieMatch = !playerHasAliveFighters(player1) && !playerHasAliveFighters(player2);
+        Player winner = playerHasAliveFighters(player1) ? player1 : player2;
+        Player looser = playerHasAliveFighters(player1) ? player2 : player1;
         return new MatchResult(1,winner,looser,isTieMatch, battles);
     }
+
     private Character getFighter(Player player){
-        Character nextFighter=null;
+        Character nextFighter = null;
         for(Character fighter : player.getParty()){
             if (fighter.isAlive()){
                 nextFighter = fighter;
