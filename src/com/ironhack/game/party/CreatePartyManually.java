@@ -48,25 +48,26 @@ public class CreatePartyManually {
 
     //Set >>partySizeLimit<<
     public int setPartySizeLimit() {
-        System.out.println("Please type down how many fighters each party should have: \n");
-
         Scanner scanner = new Scanner(System.in);
-
-//        Must add correct input value validation
-        partySizeLimit = scanner.nextInt();
-        System.out.println("\nParties' size is set to " + partySizeLimit + "");
+        System.out.println("Type down how many fighters your party should have.");
+        do {
+            System.out.println("Party must have at least 1 fighter.");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Please enter the number of fighters.");
+                scanner.next();
+            }
+            partySizeLimit = scanner.nextInt();
+        } while (partySizeLimit < 1);
+        System.out.println("\nParty size is set to " + partySizeLimit + ".");
         return partySizeLimit;
     }
 
     //Set character's >>name<<
     public String setName() {
-        System.out.println("\n(Step 1/5)\nPlease type the name of your fighter: \n");
-
         Scanner scanner = new Scanner(System.in);
-
-//        Must add correct input value validation
-        nameTemp = scanner.nextLine();
-        System.out.println("\nYour fighter's name is " + nameTemp + "");
+        System.out.println("\n(Step 1/5)\nPlease type the name of your fighter.\nYour fighter cannot be nameless.");
+        nameTemp = scanner.next();
+        System.out.println("\nYour fighter's name is " + nameTemp + ".");
         return nameTemp;
     }
 
@@ -78,20 +79,18 @@ public class CreatePartyManually {
         System.out.println("│[2] Wizard                                   │");
         System.out.println("┖---------------------------------------------┚");
 
-        characterClassTemp = 0;
-
-        //Verifying if selected option is available
-        while (true) {
-            Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+        do {
+            while (!scanner.hasNextInt()) {
+                System.out.println("Please enter [1] or [2].\n");
+                scanner.next();
+            }
             characterClassTemp = scanner.nextInt();
 
-//        Must add correct input value validation
-            if (characterClassTemp >= 1 && characterClassTemp <= 2) {
-                break;
-            } else {
-                System.out.println("\nPlease enter [1] or [2].");
-            }
-        }
+            if (characterClassTemp < 1 || characterClassTemp > 2)
+                System.out.println("Please enter [1] or [2].\n");
+
+        } while (characterClassTemp < 1 || characterClassTemp > 2);
 
         switch (characterClassTemp) {
             case 1:
@@ -102,7 +101,6 @@ public class CreatePartyManually {
                 break;
             default:
                 System.out.println("\nThings went south. Try again.");
-                //Access point to Create your party phase
         }
         return characterClassTemp;
     }
@@ -110,47 +108,44 @@ public class CreatePartyManually {
     //Set character's >>HP<<
     public int setHp() {
         System.out.println("\n(Step 3/5)\nPlease set " + nameTemp + "'s" + " HP level (200 is max):\n");
-
-        hpTemp = 0;
-
-        //Verifying if input is correct
-        while (true) {
-            Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+        do {
+            while (!scanner.hasNextInt()) {
+                System.out.println("\n" + nameTemp + "'s HP should be set between 1 and 200. Try again!\n");
+                scanner.next();
+            }
             hpTemp = scanner.nextInt();
 
-//        Must add correct input value validation
-            if (hpTemp >= 1 && hpTemp <= 200) {
-                System.out.println("\n" + nameTemp + "'s" + " HP is: " + hpTemp + "");
-                break;
-            } else {
-                System.out.println("\n" + nameTemp + "'s HP should be set between 1 and 200. Try again!");
-            }
-        }
+            if (hpTemp < 1 || hpTemp > 200)
+                System.out.println("\n" + nameTemp + "'s HP should be set between 1 and 200. Try again!\n");
+
+        } while (hpTemp < 1 || hpTemp > 200);
+
+        System.out.println("\n" + nameTemp + "'s" + " HP is: " + hpTemp + ".\n");
         return hpTemp;
     }
 
     //Warrior attributes customization
     //Set character's >>stamina<<
     public int setStamina() {
-
         if (characterClassTemp == 1) {
             System.out.println("\n(Step 4/5)\nPlease set " + nameTemp + "'s" + " stamina level (50 is max):\n");
+            Scanner scanner = new Scanner(System.in);
 
-            staminaTemp = 0;
-
-            //Verifying if input is correct
-            while (true) {
-                Scanner scanner = new Scanner(System.in);
+            do {
+                while (!scanner.hasNextInt()) {
+                    System.out.println("\n" + nameTemp + "'s stamina should be set between 1 and 50. Try again!\n");
+                    scanner.next();
+                }
                 staminaTemp = scanner.nextInt();
 
-//        Must add correct input value validation
-                if (staminaTemp >= 1 && staminaTemp <= 50) {
-                    System.out.println("\n" + nameTemp + "'s" + " stamina is: " + staminaTemp + "");
-                    break;
-                } else {
-                    System.out.println("\n" + nameTemp + "'s stamina should be set between 1 and 50. Try again!");
-                }
-            }
+                if (staminaTemp < 1 || staminaTemp > 50)
+                    System.out.println("\n" + nameTemp + "'s stamina should be set between 1 and 50. Try again!\n");
+
+            } while (staminaTemp < 1 || staminaTemp > 50);
+
+            System.out.println("\n" + nameTemp + "'s" + " stamina is: " + staminaTemp + ".\n");
+
         }
         return staminaTemp;
     }
@@ -159,22 +154,21 @@ public class CreatePartyManually {
     public int setStrength() {
         if (characterClassTemp == 1) {
             System.out.println("\n(Step 5/5)\nPlease set " + nameTemp + "'s" + " strength level (10 is max):\n");
+            Scanner scanner = new Scanner(System.in);
 
-            strengthTemp = 0;
-
-            //Verifying if input is correct
-            while (true) {
-                Scanner scanner = new Scanner(System.in);
+            do {
+                while (!scanner.hasNextInt()) {
+                    System.out.println("\n" + nameTemp + "'s strength should be set between 1 and 10. Try again!\n");
+                    scanner.next();
+                }
                 strengthTemp = scanner.nextInt();
 
-//        Must add correct input value validation
-                if (strengthTemp >= 1 && strengthTemp <= 10) {
-                    System.out.println("\n" + nameTemp + "'s" + " strength is: " + strengthTemp + "");
-                    break;
-                } else {
+                if (strengthTemp < 1 || strengthTemp > 10)
                     System.out.println("\n" + nameTemp + "'s strength should be set between 1 and 10. Try again!\n");
-                }
-            }
+
+            } while (strengthTemp < 1 || strengthTemp > 10);
+
+            System.out.println("\n" + nameTemp + "'s" + " strength is: " + strengthTemp + ".\n");
         }
         return strengthTemp;
     }
@@ -184,22 +178,21 @@ public class CreatePartyManually {
     public int setMana() {
         if (characterClassTemp == 2) {
             System.out.println("\n(Step 4/5)\nPlease set " + nameTemp + "'s" + " mana level (50 is max):\n");
+            Scanner scanner = new Scanner(System.in);
 
-            manaTemp = 0;
-
-            //Verifying if input is correct
-            while (true) {
-                Scanner scanner = new Scanner(System.in);
+            do {
+                while (!scanner.hasNextInt()) {
+                    System.out.println("\n" + nameTemp + "'s mana should be set between 1 and 50. Try again!\n");
+                    scanner.next();
+                }
                 manaTemp = scanner.nextInt();
 
-//        Must add correct input value validation
-                if (manaTemp >= 1 && manaTemp <= 50) {
-                    System.out.println("\n" + nameTemp + "'s" + " mana is: " + manaTemp + "");
-                    break;
-                } else {
-                    System.out.println("\n" + nameTemp + "'s mana should be set between 1 and 50. Try again!");
-                }
-            }
+                if (manaTemp < 1 || manaTemp > 50)
+                    System.out.println("\n" + nameTemp + "'s mana should be set between 1 and 50. Try again!\n");
+
+            } while (manaTemp < 1 || manaTemp > 50);
+
+            System.out.println("\n" + nameTemp + "'s" + " mana is: " + manaTemp + ".\n");
         }
         return manaTemp;
     }
@@ -208,22 +201,21 @@ public class CreatePartyManually {
     public int setIntelligence() {
         if (characterClassTemp == 2) {
             System.out.println("\n(Step 5/5)\nPlease set " + nameTemp + "'s" + " intelligence level (50 is max):\n");
+            Scanner scanner = new Scanner(System.in);
 
-            intelligenceTemp = 0;
-
-            //Verifying if input is correct
-            while (true) {
-                Scanner scanner = new Scanner(System.in);
+            do {
+                while (!scanner.hasNextInt()) {
+                    System.out.println("\n" + nameTemp + "'s intelligence should be set between 1 and 50. Try again!\n");
+                    scanner.next();
+                }
                 intelligenceTemp = scanner.nextInt();
 
-//        Must add correct input value validation
-                if (intelligenceTemp >= 1 && intelligenceTemp <= 50) {
-                    System.out.println("\n" + nameTemp + "'s" + " intelligence is: " + intelligenceTemp + "");
-                    break;
-                } else {
-                    System.out.println("\n" + nameTemp + "'s intelligence should be set between 1 and 50. Try again!");
-                }
-            }
+                if (intelligenceTemp < 1 || intelligenceTemp > 50)
+                    System.out.println("\n" + nameTemp + "'s intelligence should be set between 1 and 50. Try again!\n");
+
+            } while (intelligenceTemp < 1 || intelligenceTemp > 50);
+
+            System.out.println("\n" + nameTemp + "'s" + " intelligence is: " + intelligenceTemp + ".\n");
         }
         return intelligenceTemp;
     }

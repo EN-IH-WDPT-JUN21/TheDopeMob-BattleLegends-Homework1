@@ -9,7 +9,7 @@ public class GameSet {
     private static Player computerOne;
     private static Player computerTwo;
 
-    // playMode getter and settergit branch
+    // playMode getter and setter git branch
     public static int getPlayMode() {
         return playMode;
     }
