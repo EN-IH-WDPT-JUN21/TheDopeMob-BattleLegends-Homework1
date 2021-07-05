@@ -14,6 +14,8 @@ public class Main {
 
         Start.welcome(); // Initial message and signal for game set-up;
         Menu.menuControl(1); // Start game set-up step by step
+        System.out.println(GameSet.getPlayerOne());
+        System.out.println(GameSet.getPlayerTwo());
 
 
         Match match = new Match(GameSet.getPlayerOne(), GameSet.getPlayerTwo());

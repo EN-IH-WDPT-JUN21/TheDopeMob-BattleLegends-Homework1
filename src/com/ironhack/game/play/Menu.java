@@ -84,7 +84,7 @@ public abstract class Menu {
         switch (GameSet.getPlayMode()) {
             case 1: // human vs human
                 System.out.println("Enter Player 1 name:");
-                String playerOneName = setNameScanner.next();
+                playerOneName = setNameScanner.next();
                 GameSet.setPlayerOne(new Player(playerOneName,true));
                 System.out.println("Enter Player 2 name:");
                 String playerTwoName = setNameScanner.next();
@@ -148,20 +148,6 @@ public abstract class Menu {
                 System.out.println("Please enter [1], [2] or [3].\n");
 
         } while (userPartyOption < 1 || userPartyOption > 3);
-//
-//
-//
-//        while(true) { // To ensure user inputs a valid choice
-//            String partyOption = scanner.nextLine(); // COULD USE INT AND LESS CODE
-//
-//            if (partyOption.equals("1") ||
-//                    partyOption.equals("2") ||
-//                    partyOption.equals("3"))
-//            {
-//            userPartyOption = Integer.parseInt(partyOption);
-//            break;
-//            }
-//        }
 
         switch (userPartyOption) {
             case 1:
