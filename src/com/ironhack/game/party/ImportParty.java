@@ -1,5 +1,4 @@
 package com.ironhack.game.party;
-
 import com.ironhack.game.character.Warrior;
 import com.ironhack.game.character.Wizard;
 import com.ironhack.game.play.Player;

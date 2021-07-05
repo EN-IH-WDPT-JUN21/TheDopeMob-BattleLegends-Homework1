@@ -61,18 +61,22 @@ public class CreatePartyRandomly {
             }
 //                Access to hero object method toString to summarize a new character;
         }
-        System.out.println("\nComputer's party was created successfully");
+        System.out.println("\nRandom party was created successfully\n");
     }
 
     //Set >>partySizeLimit<<
     public int setPartySizeLimit() {
-        System.out.println("\nPlease type down how many fighters each party should have: \n");
-
         Scanner scanner = new Scanner(System.in);
-
-//        Must add correct input value validation
-        partySizeLimit = scanner.nextInt();
-        System.out.println("\nParty's size is set to " + partySizeLimit + " fighters each.");
+        System.out.println("Type down how many fighters your party should have.");
+        do {
+            System.out.println("Party must have at least 1 fighter.");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Please enter the number of fighters.");
+                scanner.next();
+            }
+            partySizeLimit = scanner.nextInt();
+        } while (partySizeLimit < 1);
+        System.out.println("\nParty size is set to " + partySizeLimit + ".");
         return partySizeLimit;
     }
 

@@ -56,19 +56,23 @@ public abstract class Menu {
         System.out.println("│[2] Player vs Computer                       │");
         System.out.println("│[3] Computer vs Computer                     │");
         System.out.println("┖---------------------------------------------┚");
-        Scanner playModeScanner = new Scanner(System.in);
-        // while loop to only accept valid values
-        while(true){
-            String userModeSelection = playModeScanner.nextLine();
+        Scanner scanner = new Scanner(System.in);
 
-            if(     userModeSelection.equals("1") || // Player vs Player
-                    userModeSelection.equals("2") || // Player vs Computer
-                    userModeSelection.equals("3"))   // Computer vs Computer
-            {
-            GameSet.setPlayMode(Integer.parseInt(userModeSelection));
+        int userModeSelection;
+
+        do {
+            while (!scanner.hasNextInt()) {
+                System.out.println("Please enter [1], [2] or [3].\n");
+                scanner.next();
             }
-            break;
-        }
+            userModeSelection = scanner.nextInt();
+
+            if (userModeSelection < 1 || userModeSelection > 3)
+                System.out.println("Please enter [1], [2] or [3].\n");
+
+        } while (userModeSelection < 1 || userModeSelection > 3);
+
+        GameSet.setPlayMode(userModeSelection);
     }
 
     public static void setPlayers() {
@@ -76,16 +80,17 @@ public abstract class Menu {
         switch (GameSet.getPlayMode()) {
             case 1:
                 System.out.println("Enter Player 1 name:");
-                String playerOneName = setNameScanner.nextLine();
+
+                String playerOneName = setNameScanner.next();
                 GameSet.setPlayerOne(new Player(playerOneName,true));
                 System.out.println("Enter Player 2 name:");
-                String playerTwoName = setNameScanner.nextLine();
+                String playerTwoName = setNameScanner.next();
                 GameSet.setPlayerTwo(new Player(playerTwoName,true));
                 break;
 
             case 2:
                 System.out.println("Enter Player 1 name:");
-                String playerOneName2 = setNameScanner.nextLine();
+                String playerOneName2 = setNameScanner.next();
                 GameSet.setPlayerOne(new Player(playerOneName2,true));
                 GameSet.setComputerOne(new Player("Computer",false));
                 // Initialize player2 as random computer player
@@ -98,8 +103,8 @@ public abstract class Menu {
                 // Initialize player1 and player2 as random computer players
                 break;
         }
-
     }
+
     // Calls createParty according to case
     public static void createPartyByPlayMode() throws FileNotFoundException {
         switch (GameSet.getPlayMode()) {
@@ -124,19 +129,34 @@ public abstract class Menu {
         System.out.println("│[2] Import                                   │");
         System.out.println("│[3] Randomly                                 │");
         System.out.println("┖---------------------------------------------┚");
-        Scanner createPartyScanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         int userPartyOption;
-        while(true) { // To ensure user inputs a valid choice
-            String partyOption = createPartyScanner.nextLine(); // COULD USE INT AND LESS CODE
 
-            if (partyOption.equals("1") ||
-                    partyOption.equals("2") ||
-                    partyOption.equals("3"))
-            {
-            userPartyOption = Integer.parseInt(partyOption);
-            break;
+        do {
+            while (!scanner.hasNextInt()) {
+                System.out.println("Please enter [1], [2] or [3].\n");
+                scanner.next();
             }
-        }
+            userPartyOption = scanner.nextInt();
+
+            if (userPartyOption < 1 || userPartyOption > 3)
+                System.out.println("Please enter [1], [2] or [3].\n");
+
+        } while (userPartyOption < 1 || userPartyOption > 3);
+//
+//
+//
+//        while(true) { // To ensure user inputs a valid choice
+//            String partyOption = scanner.nextLine(); // COULD USE INT AND LESS CODE
+//
+//            if (partyOption.equals("1") ||
+//                    partyOption.equals("2") ||
+//                    partyOption.equals("3"))
+//            {
+//            userPartyOption = Integer.parseInt(partyOption);
+//            break;
+//            }
+//        }
 
         switch (userPartyOption) {
             case 1:
