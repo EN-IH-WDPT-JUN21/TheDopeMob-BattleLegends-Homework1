@@ -1,4 +1,5 @@
 package com.ironhack.game.party;
+
 import com.ironhack.game.character.Warrior;
 import com.ironhack.game.character.Wizard;
 import com.ironhack.game.play.Player;
@@ -18,6 +19,7 @@ public abstract class ImportParty {
             int HP = Integer.parseInt(scannerCSV.next().trim());
             int resource = Integer.parseInt(scannerCSV.next().trim());
             int attack = Integer.parseInt(scannerCSV.next().trim());
+
 
             if (type.equals("Warrior")) {
                 Warrior warrior = new Warrior(name, HP, resource, attack);

@@ -1,10 +1,10 @@
 package com.ironhack.game.battle;
 
 import com.ironhack.game.character.Character;
+import com.ironhack.game.play.GameSet;
 import com.ironhack.game.graveyard.Grave;
 import com.ironhack.game.graveyard.Graveyard;
 import com.ironhack.game.play.Player;
-
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -53,13 +53,17 @@ public class Battle {
     }
 
     public void startBattle() {
-        System.out.println("\n=====Start of battle "+battleNumber+"!=====");
+
+        System.out.println("\n=====Start of battle " + battleNumber + "!=====");
+        Character winner;
+        Character looser;
+        boolean isTie = false;
+
         while(getPlayer1Character().isAlive() && getPlayer2Character().isAlive()){
             roundTotalNumber++;
             System.out.println("\nStarting round "+roundTotalNumber+"!");
             getPlayer2Character().defaultAttack(getPlayer1Character());
             getPlayer1Character().defaultAttack(getPlayer2Character());
-
         }
         if (!player1Character.isAlive() && !player2Character.isAlive()){
             isTie = true;

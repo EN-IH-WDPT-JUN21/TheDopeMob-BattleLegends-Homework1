@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Match {
-
+    // Instance fields
     private final Player player1;
     private final Player player2;
     private ArrayList<Battle> listOfBattles;
