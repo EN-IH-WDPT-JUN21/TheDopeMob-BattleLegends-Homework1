@@ -39,13 +39,21 @@ public class Wizard extends Character implements Attacker {
             secondaryAttack(opponent);
         } else {
             opponent.setHp(opponent.getHp() - this.getIntelligence());
+            System.out.println(getName()+" casts  Fireball and attacks "+opponent.getName()+" for "+getIntelligence()+" damage. Opponent has "+opponent.getHp()+" hp left.");
             this.setMana(this.getMana() - 5);
+            System.out.println(getName()+" looses 5 mana, total mana left: "+mana);
         }
     }
     @Override
     public void secondaryAttack(Character opponent) {
         opponent.setHp(opponent.getHp() - 2);
+        System.out.println(getName()+" attacks "+opponent.getName()+" with a Staff Attack for 2 damage. Opponent has "+opponent.getHp()+" hp left.");
         this.setMana(this.getMana() + 1);
+        System.out.println(getName()+" recover 1 mana, total mana amount: "+mana);
     }
 
+    @Override
+    public String toString() {
+        return super.toString()+" |"+getClass()+" |Intelligence:"+Intelligence+" |Mana:"+mana;
+    }
 }
