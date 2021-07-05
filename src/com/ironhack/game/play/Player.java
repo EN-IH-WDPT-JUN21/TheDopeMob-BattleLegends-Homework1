@@ -43,7 +43,12 @@ public class Player {
 
     // Method to retrieve specific character in list
     public Character getCharacter(int i) {
-        return getParty().get(i);
+        for (Character ch : party){
+            if (ch.getId()==i){
+                return ch;
+            }
+        }
+        throw new IllegalArgumentException("Character with this ID not found");
     }
 
     // toString()

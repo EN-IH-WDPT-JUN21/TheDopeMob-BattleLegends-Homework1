@@ -46,7 +46,7 @@ public class MatchResult {
         else{
             resultMessage = winner.getName()+" won the match against "+looser.getName();
         }
-        return "\n\n===========MatchResult=========\n" +
+        return "\n\n===========Match Result=========\n" +
                 resultMessage+"\nQuick look at the battles below:\n"+
                 battles;
     }

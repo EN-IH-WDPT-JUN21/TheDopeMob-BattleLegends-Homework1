@@ -69,14 +69,12 @@ public class Battle {
         Player loosingPlayer;
         if (player1Character.isAlive()){
             winner = getPlayer1Character();
-            winningPlayerName = player1.getName();
             loosingPlayer = player2;
             looser = getPlayer2Character();
         }
         else{
             winner=getPlayer2Character();
             loosingPlayer = player1;
-            winningPlayerName = player2.getName();
             looser=getPlayer1Character();
         }
 
@@ -84,8 +82,8 @@ public class Battle {
         System.out.println("\nBattle "+battleNumber+" has ended!");
         if (isTie){
             System.out.println("Both fighters are dead. It's a tie!");
-            Grave player1Grave = new Grave(player1Character, player1.getName(), player2Character.getName(),battleNumber,isTie);
-            Grave player2Grave = new Grave(player2Character, player2.getName(), player1Character.getName(),battleNumber,isTie);
+            Grave player1Grave = new Grave(player1Character, player1.getName(), player2Character.getName(),battleNumber);
+            Grave player2Grave = new Grave(player2Character, player2.getName(), player1Character.getName(),battleNumber);
             Graveyard.addGrave(player1Grave);
             Graveyard.addGrave(player2Grave);
             player1.getParty().remove(player1Character);
@@ -94,7 +92,7 @@ public class Battle {
         else {
             System.out.println("Winner: " + winner.getName());
             System.out.println("Looser: " + looser.getName());
-            Grave grave = new Grave(looser, winningPlayerName,winner.getName(),battleNumber,isTie);
+            Grave grave = new Grave(looser, loosingPlayer.getName(), winner.getName(),battleNumber);
             Graveyard.addGrave(grave);
             loosingPlayer.getParty().remove(looser);
 
@@ -111,10 +109,8 @@ public class Battle {
             }
             System.out.println(message);
             System.out.println("Input character ID to pick him");
-            int i=0;
             for(Character ch : player.getParty()){
-                System.out.println("ID:"+i+" "+ch);
-                i++;
+                System.out.println(ch);
             }
             int characterIdPicked;
             Character characterPicked = null;
