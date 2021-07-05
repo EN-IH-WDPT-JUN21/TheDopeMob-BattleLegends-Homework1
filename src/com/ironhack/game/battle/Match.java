@@ -8,14 +8,15 @@ import java.util.List;
 
 public class Match {
 
-    private final Player redPlayer;
-    private final Player bluePlayer;
+    private final Player player1;
+    private final Player player2;
     private ArrayList<Battle> listOfBattles;
 
 
     public Match(Player player1, Player player2) {
         this.player1 = player1;
         this.player2 = player2;
+        listOfBattles = new ArrayList<>();
     }
 
     public Player getplayer1() {
@@ -27,41 +28,21 @@ public class Match {
     }
 
     public MatchResult getMatchResult() {
-        List<BattleResult> battles = new ArrayList<>();
-
         int battleNo = 1;
         while (playerHasAliveFighters(player1) && playerHasAliveFighters(player2)){
-            Character redFighter = getFighter(player1);
-            Character blueFighter = getFighter(player2);
-            Battle battle = new Battle(redFighter, blueFighter);
+            Battle battle = new Battle(player1, player2);
             battle.startBattle();
+            listOfBattles.add(battle);
 
             battleNo++;
         }
         boolean isTieMatch = !playerHasAliveFighters(player1) && !playerHasAliveFighters(player2);
         Player winner = playerHasAliveFighters(player1) ? player1 : player2;
         Player looser = playerHasAliveFighters(player1) ? player2 : player1;
-        return new MatchResult(1,winner,looser,isTieMatch, battles);
+        return new MatchResult(1,winner,looser,isTieMatch, listOfBattles);
     }
 
-    private Character getFighter(Player player){
-        Character nextFighter = null;
-        for(Character fighter : player.getParty()){
-            if (fighter.isAlive()){
-                nextFighter = fighter;
-                break;
-            }
-        }
-        return nextFighter;
-    }
     private boolean playerHasAliveFighters(Player player){
-        boolean hasAliveFighters = false;
-        for(Character fighter : player.getParty()){
-            if (fighter.isAlive()){
-                hasAliveFighters = true;
-                break;
-            }
-        }
-        return hasAliveFighters;
+        return player.getParty().size()>0;
     }
 }

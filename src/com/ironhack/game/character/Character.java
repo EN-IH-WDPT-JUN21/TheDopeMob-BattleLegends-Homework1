@@ -63,11 +63,6 @@ public abstract class Character { // This class can be abstract since all Charac
     // toString()
     @Override
     public String toString() {
-        return "\nCharacter{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", hp=" + hp +
-                ", isAlive=" + isAlive +
-                '}';
+        return name+" |HP:"+hp;
     }
 }

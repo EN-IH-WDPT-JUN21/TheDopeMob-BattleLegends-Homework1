@@ -77,23 +77,23 @@ public abstract class Menu {
             case 1:
                 System.out.println("Enter Player 1 name:");
                 String playerOneName = setNameScanner.nextLine();
-                GameSet.setPlayerOne(new Player(playerOneName));
+                GameSet.setPlayerOne(new Player(playerOneName,true));
                 System.out.println("Enter Player 2 name:");
                 String playerTwoName = setNameScanner.nextLine();
-                GameSet.setPlayerTwo(new Player(playerTwoName));
+                GameSet.setPlayerTwo(new Player(playerTwoName,true));
                 break;
 
             case 2:
                 System.out.println("Enter Player 1 name:");
                 String playerOneName2 = setNameScanner.nextLine();
-                GameSet.setPlayerOne(new Player(playerOneName2));
-                GameSet.setComputerOne(new Player("Computer"));
+                GameSet.setPlayerOne(new Player(playerOneName2,true));
+                GameSet.setComputerOne(new Player("Computer",false));
                 // Initialize player2 as random computer player
                 break;
 
             case 3:
-                GameSet.setComputerOne(new Player("Computer 1"));
-                GameSet.setComputerTwo(new Player("Computer 2"));
+                GameSet.setComputerOne(new Player("Computer 1",false));
+                GameSet.setComputerTwo(new Player("Computer 2", false));
                 System.out.println("Enjoy the battle!");
                 // Initialize player1 and player2 as random computer players
                 break;
