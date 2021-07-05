@@ -77,23 +77,23 @@ public abstract class Menu {
             case 1:
                 System.out.println("Enter Player 1 name:");
                 String playerOneName = setNameScanner.nextLine();
-                GameSet.setPlayerOne(new Player(playerOneName));
+                GameSet.setPlayerOne(new Player(playerOneName, true));
                 System.out.println("Enter Player 2 name:");
                 String playerTwoName = setNameScanner.nextLine();
-                GameSet.setPlayerTwo(new Player(playerTwoName));
+                GameSet.setPlayerTwo(new Player(playerTwoName, true));
                 break;
 
             case 2:
                 System.out.println("Enter Player 1 name:");
                 String playerOneName2 = setNameScanner.nextLine();
-                GameSet.setPlayerOne(new Player(playerOneName2));
-                GameSet.setComputerOne(new Player("Computer"));
+                GameSet.setPlayerOne(new Player(playerOneName2, true));
+                GameSet.setPlayerTwo(new Player("ComputerOne", false));
                 // Initialize player2 as random computer player
                 break;
 
             case 3:
-                GameSet.setComputerOne(new Player("Computer 1"));
-                GameSet.setComputerTwo(new Player("Computer 2"));
+                GameSet.setPlayerOne(new Player("ComputerOne", false));
+                GameSet.setPlayerTwo(new Player("ComputerTwo", false));
                 System.out.println("Enjoy the battle!");
                 // Initialize player1 and player2 as random computer players
                 break;
@@ -109,11 +109,11 @@ public abstract class Menu {
                 break;
             case 2:
                 createParty(GameSet.getPlayerOne());
-                createParty(GameSet.getComputerOne());
+                createParty(GameSet.getPlayerTwo());
                 break;
             default:
-                createParty(GameSet.getComputerOne());
-                createParty(GameSet.getComputerTwo());
+                createParty(GameSet.getPlayerOne());
+                createParty(GameSet.getPlayerTwo());
         }
     }
     // Called by createPartyByPlayMode() BETTER NAME CREATEPARTYHELPER

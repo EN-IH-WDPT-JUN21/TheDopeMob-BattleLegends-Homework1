@@ -6,10 +6,8 @@ public class GameSet {
     private static int playMode;
     private static Player playerOne;
     private static Player playerTwo;
-    private static Player computerOne;
-    private static Player computerTwo;
 
-    // playMode getter and settergit branch
+    // playMode getter and setter
     public static int getPlayMode() {
         return playMode;
     }
@@ -36,19 +34,4 @@ public class GameSet {
         GameSet.playerTwo = playerTwo;
     }
 
-    public static Player getComputerOne() {
-        return computerOne;
-    }
-
-    public static void setComputerOne(Player computerOne) {
-        GameSet.computerOne = computerOne;
-    }
-
-    public static Player getComputerTwo() {
-        return computerTwo;
-    }
-
-    public static void setComputerTwo(Player computerTwo) {
-        GameSet.computerTwo = computerTwo;
-    }
 }
