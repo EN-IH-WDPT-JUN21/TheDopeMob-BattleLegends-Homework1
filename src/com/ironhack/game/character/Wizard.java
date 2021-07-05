@@ -54,6 +54,6 @@ public class Wizard extends Character implements Attacker {
 
     @Override
     public String toString() {
-        return super.toString()+" |"+getClass()+" |Intelligence:"+Intelligence+" |Mana:"+mana;
+        return super.toString()+" |"+getClass().getSimpleName()+" |Intelligence:"+Intelligence+" |Mana:"+mana;
     }
 }

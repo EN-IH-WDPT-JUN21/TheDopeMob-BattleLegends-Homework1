@@ -55,9 +55,6 @@ public class Battle {
     public void startBattle() {
 
         System.out.println("\n=====Start of battle " + battleNumber + "!=====");
-        Character winner;
-        Character looser;
-        boolean isTie = false;
 
         while(getPlayer1Character().isAlive() && getPlayer2Character().isAlive()){
             roundTotalNumber++;
