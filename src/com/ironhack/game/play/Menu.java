@@ -30,7 +30,7 @@ public abstract class Menu {
             }
             //----After each IF statement it continues here
             //----Possible inputs to navigate steps: ["", "quit", "back"] + ENTER
-            System.out.println("Press enter to continue");
+            System.out.println("CONTINUE: press ENTER\nBACK: write 'back' + ENTER\nQUIT: write 'quit' + ENTER");
             Scanner scanner = new Scanner(System.in);
             String userInput = scanner.nextLine();
                 // If user enters:

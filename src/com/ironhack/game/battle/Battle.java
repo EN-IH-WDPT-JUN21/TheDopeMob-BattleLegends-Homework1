@@ -62,13 +62,6 @@ public class Battle {
             winner=getPlayer2Character();
             looser=getPlayer1Character();
         }
-//         Send fallen characters to the Graveyard
-        if(!getPlayer1Character().isAlive()) { // Character hp is less than 1
-            Match.addToGraveyard(getPlayer1Character());
-        }
-        if(!getPlayer2Character().isAlive()) { // Character hp is less than 1
-            Match.addToGraveyard(getPlayer2Character());
-        }
 
         System.out.println("Battle "+battleNumber+" has ended!");
         System.out.println("Winner: "+winner.getName());
