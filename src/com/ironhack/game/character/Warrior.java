@@ -1,5 +1,8 @@
 package com.ironhack.game.character;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Warrior extends Character implements Attacker {
 
     // Instance fields
@@ -36,12 +39,23 @@ public class Warrior extends Character implements Attacker {
             secondaryAttack(opponent);
         } else {
             opponent.setHp(opponent.getHp() - this.getStrength());
+            System.out.println(getName()+" attacks "+opponent.getName()+" with a Heavy Attack for "+getStrength()+" damage. Opponent has "+opponent.getHp()+" hp left.");
             this.setStamina(this.getStamina() - 5);
+            System.out.println(getName()+" looses 5 stamina, total stamina left: "+stamina);
         }
     }
     public void secondaryAttack(Character opponent) {
-        opponent.setHp(opponent.getHp() - this.getStrength() / 2);
+        //Calculating damage so we can use it in sout command easier.
+        int calculateDamage = new BigDecimal(String.valueOf(getStrength())).divide(new BigDecimal("2"),0, RoundingMode.FLOOR).intValue();
+        opponent.setHp(opponent.getHp() - calculateDamage);
+        System.out.println(getName()+" attacks "+opponent.getName()+" with a Weak Attack for "+calculateDamage+" damage. Opponent has "+opponent.getHp()+" hp left.");
         this.setStamina(this.getStamina() + 1);
+        System.out.println(getName()+" recover 1 stamina, total stamina amount: "+stamina);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+" |"+getClass()+ " |Strength:"+strength+" |Stamina:"+stamina;
     }
 }
 

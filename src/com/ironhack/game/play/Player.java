@@ -7,9 +7,11 @@ public class Player {
     // Instance fields
     private String name;
     private ArrayList<Character> party;
+    private boolean isHuman;
     // Constructor
-    public Player(String name) {
+    public Player(String name, boolean isHuman) {
         this.name = name;
+        this.isHuman = isHuman;
         this.party = new ArrayList<>(); // Initializes to an empty party
     }
     // name getter and setter
@@ -18,6 +20,10 @@ public class Player {
     }
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean isHuman() {
+        return isHuman;
     }
 
     //Get party added by Wojtek Drygas, needed for match class
