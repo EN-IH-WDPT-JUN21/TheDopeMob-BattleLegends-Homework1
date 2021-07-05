@@ -10,9 +10,9 @@ public class MatchResult {
     private final Player winner;
     private final Player looser;
     private final boolean wasTie;
-    private final List<BattleResult> battles;
+    private final List<Battle> battles;
 
-    public MatchResult(int matchId, Player winner, Player looser, boolean wasTie, List<BattleResult> battles) {
+    public MatchResult(int matchId, Player winner, Player looser, boolean wasTie, List<Battle> battles) {
         this.matchId = matchId;
         this.winner = winner;
         this.looser = looser;
@@ -35,16 +35,19 @@ public class MatchResult {
     public Player getLooser() {
         return looser;
     }
-    public List<BattleResult> getBattles() { return battles; }
+    public List<Battle> getBattles() { return battles; }
 
     @Override
     public String toString() {
-        return "\n\n===========MatchResult=========\n{" +
-                "matchId=" + matchId +
-                ", winner=" + winner.getName() +
-                ", looser=" + looser.getName() +
-                ", wasTie=" + wasTie +
-                ", battles=" + battles +
-                '}';
+        String resultMessage = "";
+        if (wasTie) {
+            resultMessage = "The match against "+winner.getName()+" and "+looser.getName()+" ended in a tie";
+        }
+        else{
+            resultMessage = winner.getName()+" won the match against "+looser.getName();
+        }
+        return "\n\n===========MatchResult=========\n" +
+                resultMessage+"\nQuick look at the battles below:\n"+
+                battles;
     }
 }

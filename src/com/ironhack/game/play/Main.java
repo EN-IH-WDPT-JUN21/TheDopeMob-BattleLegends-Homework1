@@ -3,6 +3,7 @@ package com.ironhack.game.play;
 import com.ironhack.game.battle.Battle;
 import com.ironhack.game.battle.Match;
 import com.ironhack.game.battle.MatchResult;
+import com.ironhack.game.graveyard.Graveyard;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -17,9 +18,7 @@ public class Main {
         Match match = new Match(GameSet.getPlayerOne(), GameSet.getPlayerTwo());
         System.out.println(match.getMatchResult());
 
-
-        // Repeat until one of the players (or both) have no characters left
-        System.out.println("The winner is ...");
+        Graveyard.printGravesInfo();
         System.out.println("Play again?");
     }
 }
