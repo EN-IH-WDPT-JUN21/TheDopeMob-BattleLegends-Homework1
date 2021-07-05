@@ -10,16 +10,14 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public abstract class Menu {
-
+                            //----UTILITY FOR GAME SETTING----//
     public static void menuControl(int menuStep) throws FileNotFoundException {
-        boolean menuControl = true;
-        while(menuControl) {
+        boolean menuControl = true; // to step out of WHILE before game is set
 
-            //----INNER CONDITION INSIDE LOOP TO SET GAME
-            //----GOES FORWARD EXCEPT IF USER ENTERS BACK OR QUIT
+        while(menuControl) { // Logic to call game setting functionality
             if(menuStep == 1) {
                 playMode();
-                menuStep++; // After each step, method continues to ask user to press enter, the loops back
+                menuStep++;
             } else if (menuStep == 2) {
                 setPlayers();
                 menuStep++;
@@ -30,12 +28,14 @@ public abstract class Menu {
                 System.out.println("!!!BATTLE!!!");
                 menuControl = false;
             }
-
-            //---- CONTINUES HERE AFTER EACH IF STATEMENT
+            //----After each IF statement it continues here
+            //----Possible inputs to navigate steps: ["", "quit", "back"] + ENTER
             System.out.println("Press enter to continue");
             Scanner scanner = new Scanner(System.in);
             String userInput = scanner.nextLine();
-                // If user enters: quit - closes program / back - go back to last step of game set-up
+                // If user enters:
+                                 //quit - closes program
+                                // back - go back to last step of game set-up
             switch (userInput) {
                 case "quit":
                     System.out.println("Quit game");
@@ -46,19 +46,20 @@ public abstract class Menu {
                     System.out.println("Go to previous stage");
                     break;
             }
+
         }
     }
-
-    public static void playMode() {
+    //---- Set type of players: humans, computer or mix
+    private static void playMode() {
         System.out.println("How do you want to play?");
         System.out.println("┎---------------------------------------------┒");
         System.out.println("│[1] Player vs Player                         │");
         System.out.println("│[2] Player vs Computer                       │");
         System.out.println("│[3] Computer vs Computer                     │");
         System.out.println("┖---------------------------------------------┚");
+
         Scanner playModeScanner = new Scanner(System.in);
-        // while loop to only accept valid values
-        while(true){
+        while(true){ // only accept valid values
             String userModeSelection = playModeScanner.nextLine();
 
             if(     userModeSelection.equals("1") || // Player vs Player
@@ -66,16 +67,24 @@ public abstract class Menu {
                     userModeSelection.equals("3"))   // Computer vs Computer
             {
             GameSet.setPlayMode(Integer.parseInt(userModeSelection));
-            }
             break;
+            } else { // Ask again if enter an invalid option
+                System.out.println("That's not a valid option!!!\n");
+                System.out.println("How do you want to play?");
+                System.out.println("┎---------------------------------------------┒");
+                System.out.println("│[1] Player vs Player                         │");
+                System.out.println("│[2] Player vs Computer                       │");
+                System.out.println("│[3] Computer vs Computer                     │");
+                System.out.println("┖---------------------------------------------┚");
+            }
         }
     }
-
-    public static void setPlayers() {
+    //---- Set human players name and instantiate Players
+    private static void setPlayers() {
         Scanner setNameScanner = new Scanner(System.in);
         String playerOneName;
         switch (GameSet.getPlayMode()) {
-            case 1:
+            case 1: // human vs human
                 System.out.println("Enter Player 1 name:");
                 playerOneName = setNameScanner.nextLine();
                 GameSet.setPlayerOne(new Player(playerOneName));
@@ -84,32 +93,30 @@ public abstract class Menu {
                 GameSet.setPlayerTwo(new Player(playerTwoName));
                 break;
 
-            case 2:
+            case 2: // human vs computer
                 System.out.println("Enter Player 1 name:");
                 playerOneName = setNameScanner.nextLine();
                 GameSet.setPlayerOne(new Player(playerOneName));
                 GameSet.setPlayerTwo(new Player("ComputerOne"));
-                // Initialize player2 as random computer player
                 break;
 
-            case 3:
+            case 3: // computer vs computer
                 GameSet.setPlayerOne(new Player("ComputerOne"));
                 GameSet.setPlayerTwo(new Player("ComputerTwo"));
-                System.out.println("Enjoy the battle!");
-                // Initialize player1 and player2 as random computer players
                 break;
         }
 
     }
-    // Calls createParty according to case
-    public static void createPartyByPlayMode() throws FileNotFoundException {
+    //---- Calls createPartyHelper() according playMode selection
+    //---- createPartyHelper() prompts human player to select party creation mode
+    private static void createPartyByPlayMode() throws FileNotFoundException {
         switch (GameSet.getPlayMode()) {
             case 1:
-                createParty(GameSet.getPlayerOne());
-                createParty(GameSet.getPlayerTwo());
+                createPartyHelper(GameSet.getPlayerOne());
+                createPartyHelper(GameSet.getPlayerTwo());
                 break;
             case 2:
-                createParty(GameSet.getPlayerOne());
+                createPartyHelper(GameSet.getPlayerOne());
                 CreatePartyRandomly partyRandomly = new CreatePartyRandomly();
                 partyRandomly.createPartyRandomly(GameSet.getPlayerTwo());
                 break;
@@ -120,8 +127,8 @@ public abstract class Menu {
                 partyRandomly2.createPartyRandomly(GameSet.getPlayerTwo());
         }
     }
-    // Called by createPartyByPlayMode() BETTER NAME CREATEPARTYHELPER
-    public static void createParty(Player player) throws FileNotFoundException {
+    // Helper method to createPartyByPlayMode()
+    private static void createPartyHelper(Player player) throws FileNotFoundException {
         System.out.println(player.getName() + ", create your party!");
         System.out.println("┎---------------------------------------------┒");
         System.out.println("│[1] Manually                                 │");

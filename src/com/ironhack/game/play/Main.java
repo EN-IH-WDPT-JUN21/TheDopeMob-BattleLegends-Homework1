@@ -5,10 +5,11 @@ import com.ironhack.game.battle.Match;
 import com.ironhack.game.battle.MatchResult;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
 
         Start.welcome(); // Initial message and signal for game set-up;
         Menu.menuControl(1); // Start game set-up step by step
