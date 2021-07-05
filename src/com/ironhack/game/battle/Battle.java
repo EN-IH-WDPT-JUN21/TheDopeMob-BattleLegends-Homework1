@@ -1,6 +1,7 @@
 package com.ironhack.game.battle;
 
 import com.ironhack.game.character.Character;
+import com.ironhack.game.play.GameSet;
 import com.ironhack.game.play.Player;
 
 public class Battle {
@@ -40,7 +41,7 @@ public class Battle {
     }
 
     public void startBattle() {
-        System.out.println("\n=====Start of battle "+battleNumber+"!=====");
+        System.out.println("\n=====Start of battle " + battleNumber + "!=====");
         Character winner;
         Character looser;
         boolean isTie = false;
@@ -49,7 +50,6 @@ public class Battle {
             System.out.println("\nStarting round "+roundTotalNumber+"!");
             getPlayer2Character().defaultAttack(getPlayer1Character());
             getPlayer1Character().defaultAttack(getPlayer2Character());
-
         }
         if (!player1Character.isAlive() && !player2Character.isAlive()){
             isTie = true;
@@ -61,6 +61,13 @@ public class Battle {
         else{
             winner=getPlayer2Character();
             looser=getPlayer1Character();
+        }
+//         Send fallen characters to the Graveyard
+        if(!getPlayer1Character().isAlive()) { // Character hp is less than 1
+            Match.addToGraveyard(getPlayer1Character());
+        }
+        if(!getPlayer2Character().isAlive()) { // Character hp is less than 1
+            Match.addToGraveyard(getPlayer2Character());
         }
 
         System.out.println("Battle "+battleNumber+" has ended!");

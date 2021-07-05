@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Match {
-
+    // Static fields
+    private static ArrayList<Character> graveyard = new ArrayList<>();
+    // Instance fields
     private final Player player1;
     private final Player player2;
     private ArrayList<Battle> listOfBattles;
@@ -63,5 +65,11 @@ public class Match {
             }
         }
         return hasAliveFighters;
+    }
+
+    public static void addToGraveyard(Character fallenCharacter) {
+         graveyard.add(fallenCharacter);
+         for(Character character : graveyard) {
+        }
     }
 }

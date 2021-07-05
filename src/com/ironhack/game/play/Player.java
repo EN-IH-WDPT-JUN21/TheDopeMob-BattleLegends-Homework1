@@ -6,12 +6,10 @@ import com.ironhack.game.character.Character;
 public class Player {
     // Instance fields
     private String name;
-    private boolean isHuman;
     private ArrayList<Character> party;
     // Constructor
-    public Player(String name, boolean isHuman) {
+    public Player(String name) {
         this.name = name;
-        this.isHuman = isHuman;
         this.party = new ArrayList<>(); // Initializes to an empty party
     }
     // name getter and setter

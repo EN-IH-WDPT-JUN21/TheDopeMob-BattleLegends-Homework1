@@ -73,27 +73,28 @@ public abstract class Menu {
 
     public static void setPlayers() {
         Scanner setNameScanner = new Scanner(System.in);
+        String playerOneName;
         switch (GameSet.getPlayMode()) {
             case 1:
                 System.out.println("Enter Player 1 name:");
-                String playerOneName = setNameScanner.nextLine();
-                GameSet.setPlayerOne(new Player(playerOneName, true));
+                playerOneName = setNameScanner.nextLine();
+                GameSet.setPlayerOne(new Player(playerOneName));
                 System.out.println("Enter Player 2 name:");
                 String playerTwoName = setNameScanner.nextLine();
-                GameSet.setPlayerTwo(new Player(playerTwoName, true));
+                GameSet.setPlayerTwo(new Player(playerTwoName));
                 break;
 
             case 2:
                 System.out.println("Enter Player 1 name:");
-                String playerOneName2 = setNameScanner.nextLine();
-                GameSet.setPlayerOne(new Player(playerOneName2, true));
-                GameSet.setPlayerTwo(new Player("ComputerOne", false));
+                playerOneName = setNameScanner.nextLine();
+                GameSet.setPlayerOne(new Player(playerOneName));
+                GameSet.setPlayerTwo(new Player("ComputerOne"));
                 // Initialize player2 as random computer player
                 break;
 
             case 3:
-                GameSet.setPlayerOne(new Player("ComputerOne", false));
-                GameSet.setPlayerTwo(new Player("ComputerTwo", false));
+                GameSet.setPlayerOne(new Player("ComputerOne"));
+                GameSet.setPlayerTwo(new Player("ComputerTwo"));
                 System.out.println("Enjoy the battle!");
                 // Initialize player1 and player2 as random computer players
                 break;
@@ -109,11 +110,14 @@ public abstract class Menu {
                 break;
             case 2:
                 createParty(GameSet.getPlayerOne());
-                createParty(GameSet.getPlayerTwo());
+                CreatePartyRandomly partyRandomly = new CreatePartyRandomly();
+                partyRandomly.createPartyRandomly(GameSet.getPlayerTwo());
                 break;
-            default:
-                createParty(GameSet.getPlayerOne());
-                createParty(GameSet.getPlayerTwo());
+            case 3:
+                CreatePartyRandomly partyRandomly1 = new CreatePartyRandomly();
+                partyRandomly1.createPartyRandomly(GameSet.getPlayerOne());
+                CreatePartyRandomly partyRandomly2 = new CreatePartyRandomly();
+                partyRandomly2.createPartyRandomly(GameSet.getPlayerTwo());
         }
     }
     // Called by createPartyByPlayMode() BETTER NAME CREATEPARTYHELPER
