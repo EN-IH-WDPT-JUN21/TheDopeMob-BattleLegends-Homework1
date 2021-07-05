@@ -20,7 +20,7 @@ public class Battle {
     Character player1Character;
     private boolean isTie = false;
     private Character winner;
-    private Character looser;
+    private Character loser;
 
     // CONSTRUCTOR
     public Battle(Player player1, Player player2) {
@@ -70,12 +70,12 @@ public class Battle {
         if (player1Character.isAlive()){
             winner = getPlayer1Character();
             loosingPlayer = player2;
-            looser = getPlayer2Character();
+            loser = getPlayer2Character();
         }
         else{
             winner=getPlayer2Character();
             loosingPlayer = player1;
-            looser=getPlayer1Character();
+            loser=getPlayer1Character();
         }
 
 
@@ -91,10 +91,10 @@ public class Battle {
         }
         else {
             System.out.println("Winner: " + winner.getName());
-            System.out.println("Looser: " + looser.getName());
-            Grave grave = new Grave(looser, loosingPlayer.getName(), winner.getName(),battleNumber);
+            System.out.println("loser: " + loser.getName());
+            Grave grave = new Grave(loser, loosingPlayer.getName(), winner.getName(),battleNumber);
             Graveyard.addGrave(grave);
-            loosingPlayer.getParty().remove(looser);
+            loosingPlayer.getParty().remove(loser);
 
         }
     }
@@ -150,7 +150,7 @@ public class Battle {
             lastSentance = "Both warriors died, the match ended in a tie!";
         }
         else{
-            lastSentance = winner.getName()+" has beaten "+looser.getName();
+            lastSentance = winner.getName()+" has beaten "+loser.getName();
         }
         return "\nBattle "+battleNumber+" lasted for "+roundTotalNumber+" rounds!\n"+
                 player1Character.getName()+" fought against "+player2Character.getName()+"!\n"+

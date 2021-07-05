@@ -41,7 +41,7 @@ public class Warrior extends Character implements Attacker {
             opponent.setHp(opponent.getHp() - this.getStrength());
             System.out.println(getName()+" attacks "+opponent.getName()+" with a Heavy Attack for "+getStrength()+" damage. Opponent has "+opponent.getHp()+" hp left.");
             this.setStamina(this.getStamina() - 5);
-            System.out.println(getName()+" looses 5 stamina, total stamina left: "+stamina);
+            System.out.println(getName()+" loses 5 stamina, total stamina left: "+stamina);
         }
     }
     public void secondaryAttack(Character opponent) {

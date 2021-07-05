@@ -8,14 +8,14 @@ public class MatchResult {
 
     private final int matchId;
     private final Player winner;
-    private final Player looser;
+    private final Player loser;
     private final boolean wasTie;
     private final List<Battle> battles;
 
-    public MatchResult(int matchId, Player winner, Player looser, boolean wasTie, List<Battle> battles) {
+    public MatchResult(int matchId, Player winner, Player loser, boolean wasTie, List<Battle> battles) {
         this.matchId = matchId;
         this.winner = winner;
-        this.looser = looser;
+        this.loser = loser;
         this.wasTie = wasTie;
         this.battles=battles;
     }
@@ -32,8 +32,8 @@ public class MatchResult {
         return winner;
     }
 
-    public Player getLooser() {
-        return looser;
+    public Player getloser() {
+        return loser;
     }
     public List<Battle> getBattles() { return battles; }
 
@@ -41,10 +41,10 @@ public class MatchResult {
     public String toString() {
         String resultMessage = "";
         if (wasTie) {
-            resultMessage = "The match against "+winner.getName()+" and "+looser.getName()+" ended in a tie";
+            resultMessage = "The match against "+winner.getName()+" and "+loser.getName()+" ended in a tie";
         }
         else{
-            resultMessage = winner.getName()+" won the match against "+looser.getName();
+            resultMessage = winner.getName()+" won the match against "+loser.getName();
         }
         return "\n\n===========Match Result=========\n" +
                 resultMessage+"\nQuick look at the battles below:\n"+

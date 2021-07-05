@@ -38,8 +38,8 @@ public class Match {
         }
         boolean isTieMatch = !playerHasAliveFighters(player1) && !playerHasAliveFighters(player2);
         Player winner = playerHasAliveFighters(player1) ? player1 : player2;
-        Player looser = playerHasAliveFighters(player1) ? player2 : player1;
-        return new MatchResult(1,winner,looser,isTieMatch, listOfBattles);
+        Player loser = playerHasAliveFighters(player1) ? player2 : player1;
+        return new MatchResult(1,winner,loser,isTieMatch, listOfBattles);
     }
 
     private boolean playerHasAliveFighters(Player player){

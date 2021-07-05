@@ -41,7 +41,7 @@ public class Wizard extends Character implements Attacker {
             opponent.setHp(opponent.getHp() - this.getIntelligence());
             System.out.println(getName()+" casts  Fireball and attacks "+opponent.getName()+" for "+getIntelligence()+" damage. Opponent has "+opponent.getHp()+" hp left.");
             this.setMana(this.getMana() - 5);
-            System.out.println(getName()+" looses 5 mana, total mana left: "+mana);
+            System.out.println(getName()+" loses 5 mana, total mana left: "+mana);
         }
     }
     @Override
