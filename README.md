@@ -1,47 +1,19 @@
-▓█████▄ ▒█████  ██▓███ ▓█████ ███▄ ▄███▓▒█████  ▄▄▄▄   
-▒██▀ ██▒██▒  ██▓██░  ██▓█   ▀▓██▒▀█▀ ██▒██▒  ██▓█████▄ 
-░██   █▒██░  ██▓██░ ██▓▒███  ▓██    ▓██▒██░  ██▒██▒ ▄██
-░▓█▄   ▒██   ██▒██▄█▓▒ ▒▓█  ▄▒██    ▒██▒██   ██▒██░█▀  
-░▒████▓░ ████▓▒▒██▒ ░  ░▒████▒██▒   ░██░ ████▓▒░▓█  ▀█▓
- ▒▒▓  ▒░ ▒░▒░▒░▒▓▒░ ░  ░░ ▒░ ░ ▒░   ░  ░ ▒░▒░▒░░▒▓███▀▒
- ░ ▒  ▒  ░ ▒ ▒░░▒ ░     ░ ░  ░  ░      ░ ░ ▒ ▒░▒░▒   ░ 
- ░ ░  ░░ ░ ░ ▒ ░░         ░  ░      ░  ░ ░ ░ ▒  ░    ░ 
-   ░       ░ ░            ░  ░      ░      ░ ░  ░      
- ▄▄▄▄   ▄▄▄    ▄▄▄█████▄▄▄█████▓██▓   ▓█████         ░ 
-▓█████▄▒████▄  ▓  ██▒ ▓▓  ██▒ ▓▓██▒   ▓█   ▀           
-▒██▒ ▄█▒██  ▀█▄▒ ▓██░ ▒▒ ▓██░ ▒▒██░   ▒███             
-▒██░█▀ ░██▄▄▄▄█░ ▓██▓ ░░ ▓██▓ ░▒██░   ▒▓█  ▄           
-░▓█  ▀█▓▓█   ▓██▒▒██▒ ░  ▒██▒ ░░██████░▒████▒          
-░▒▓███▀▒▒▒   ▓▒█░▒ ░░    ▒ ░░  ░ ▒░▓  ░░ ▒░ ░          
-▒░▒   ░  ▒   ▒▒ ░  ░       ░   ░ ░ ▒  ░░ ░  ░          
- ░    ░  ░   ▒   ░       ░       ░ ░     ░             
- ██▓   ▓█████░ ▄████▓█████ ███▄    █▓█████▄ ░██████    
-▓██▒  ░▓█   ▀ ██▒ ▀█▓█   ▀ ██ ▀█   █▒██▀ ██▒██    ▒    
-▒██░   ▒███  ▒██░▄▄▄▒███  ▓██  ▀█ ██░██   █░ ▓██▄      
-▒██░   ▒▓█  ▄░▓█  ██▒▓█  ▄▓██▒  ▐▌██░▓█▄   ▌ ▒   ██▒   
-░██████░▒████░▒▓███▀░▒████▒██░   ▓██░▒████▓▒██████▒▒   
-░ ▒░▓  ░░ ▒░ ░░▒   ▒░░ ▒░ ░ ▒░   ▒ ▒ ▒▒▓  ▒▒ ▒▓▒ ▒ ░   
-░ ░ ▒  ░░ ░  ░ ░   ░ ░ ░  ░ ░░   ░ ▒░░ ▒  ▒░ ░▒  ░ ░   
-  ░ ░     ░  ░ ░   ░   ░     ░   ░ ░ ░ ░  ░░  ░  ░     
-    ░  ░  ░  ░     ░   ░  ░        ░   ░         ░     
-                                     ░                 
+<img width="673" alt="Screenshot 2021-07-05 at 20 50 08" src="https://user-images.githubusercontent.com/85684784/124513418-b08f8b00-ddd2-11eb-8116-4c5c6a68bcdd.png">
+
+                                                      
+<img width="621" alt="Screenshot 2021-07-05 at 20 51 19" src="https://user-images.githubusercontent.com/85684784/124513496-de74cf80-ddd2-11eb-9a1a-72b746a4be0b.png">
+
+                                      
+                                          
+Wizards! - 
+masters of the arcane, wizards use magic to oblitorate the enemy into the void. their attacks are powerful and use Mana to cast them, the stronger their intelligance the stronger the attack. 
+
+Warriors! - 
+Architects of destruction who weild huge axe's and love to say "zug zug" they can decimate any fleshy being in the universe (if they can eventually catch them) they rely on Stamina to attack as axe's take effort to swing which means the more Strength they have the more damage is inflicted.
       
       
-      
-      
- ██▓███▄    █  ██████▄▄▄█████▓██▀███  █    ██ ▄████▄ ▄▄▄█████▓██▓▒█████  ███▄    █  ██████ 
-▓██▒██ ▀█   █▒██    ▒▓  ██▒ ▓▓██ ▒ ██▒██  ▓██▒██▀ ▀█ ▓  ██▒ ▓▓██▒██▒  ██▒██ ▀█   █▒██    ▒ 
-▒██▓██  ▀█ ██░ ▓██▄  ▒ ▓██░ ▒▓██ ░▄█ ▓██  ▒██▒▓█    ▄▒ ▓██░ ▒▒██▒██░  ██▓██  ▀█ ██░ ▓██▄   
-░██▓██▒  ▐▌██▒ ▒   ██░ ▓██▓ ░▒██▀▀█▄ ▓▓█  ░██▒▓▓▄ ▄██░ ▓██▓ ░░██▒██   ██▓██▒  ▐▌██▒ ▒   ██▒
-░██▒██░   ▓██▒██████▒▒ ▒██▒ ░░██▓ ▒██▒▒█████▓▒ ▓███▀ ░ ▒██▒ ░░██░ ████▓▒▒██░   ▓██▒██████▒▒
-░▓ ░ ▒░   ▒ ▒▒ ▒▓▒ ▒ ░ ▒ ░░  ░ ▒▓ ░▒▓░▒▓▒ ▒ ▒░ ░▒ ▒  ░ ▒ ░░  ░▓ ░ ▒░▒░▒░░ ▒░   ▒ ▒▒ ▒▓▒ ▒ ░
- ▒ ░ ░░   ░ ▒░ ░▒  ░ ░   ░     ░▒ ░ ▒░░▒░ ░ ░  ░  ▒      ░    ▒ ░ ░ ▒ ▒░░ ░░   ░ ▒░ ░▒  ░ ░
- ▒ ░  ░   ░ ░░  ░  ░   ░       ░░   ░ ░░░ ░ ░░         ░      ▒ ░ ░ ░ ▒    ░   ░ ░░  ░  ░  
- ░          ░      ░            ░       ░    ░ ░              ░     ░ ░          ░      ░  
-                                             ░                                             
-                                                   ░                                                  
-                                                   
-                                                   
+<img width="635" alt="Screenshot 2021-07-05 at 20 52 25" src="https://user-images.githubusercontent.com/85684784/124513569-fba99e00-ddd2-11eb-918d-864fdf148e21.png">
+                                                 
                                                    
                                                    
  1 - Open the Play Folder and run the program through the main class. 
@@ -76,21 +48,3 @@ randomly chosen from a pre-determined list of hero's!
 When battling the game will automatically determine the winner of the round until a character is killed which then sends them to the gaveyard, a combat text will be avaliable to view to determine how your player attacked and defended.
 
 When all hero's on a team are sent to the graveyard the battle is then over and a winner is declared. 
-
- ██░ ██▓█████ ██▀███  ▒█████   ██████ 
-▓██░ ██▓█   ▀▓██ ▒ ██▒██▒  ██▒██    ▒ 
-▒██▀▀██▒███  ▓██ ░▄█ ▒██░  ██░ ▓██▄   
-░▓█ ░██▒▓█  ▄▒██▀▀█▄ ▒██   ██░ ▒   ██▒
-░▓█▒░██░▒████░██▓ ▒██░ ████▓▒▒██████▒▒
- ▒ ░░▒░░░ ▒░ ░ ▒▓ ░▒▓░ ▒░▒░▒░▒ ▒▓▒ ▒ ░
- ▒ ░▒░ ░░ ░  ░ ░▒ ░ ▒░ ░ ▒ ▒░░ ░▒  ░ ░
- ░  ░░ ░  ░    ░░   ░░ ░ ░ ▒ ░  ░  ░  
- ░  ░  ░  ░  ░  ░        ░ ░       ░  
-                                      
-                                          
-Wizards! - 
-masters of the arcane, wizards use magic to oblitorate the enemy into the void. their attacks are powerful and use Mana to cast them, the stronger their intelligance the stronger the attack. 
-
-Warriors! - 
-Architects of destruction who weild huge axe's and love to say "zug zug" they can decimate any fleshy being in the universe (if they can eventually catch them) they rely on Stamina to attack as axe's take effort to swing which means the more Strength they have the more damage is inflicted.
-
