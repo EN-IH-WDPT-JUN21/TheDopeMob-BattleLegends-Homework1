@@ -37,6 +37,7 @@ public class MatchResult {
     }
     public List<Battle> getBattles() { return battles; }
 
+    //Messages to be printed in the console
     @Override
     public String toString() {
         String resultMessage = "";

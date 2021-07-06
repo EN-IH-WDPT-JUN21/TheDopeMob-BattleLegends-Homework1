@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Graveyard {
+    //Graveyard prints the content of each Grave, simple functionality
     private static List<Grave> graves = new ArrayList<>();
-
     public static List<Grave> getGraves() {
         return graves;
     }
