@@ -143,7 +143,6 @@ public class Battle {
                     //Getting input from scanner
                     Scanner scn = new Scanner(System.in);
                     characterIdPicked = scn.nextInt();
-                    scn.close();
                     //Validating, probably an overkill, because getCharacter method throws an exception if it can't find a character with given ID
                     //but it's safe to have more validation then less
                     characterPicked = player.getCharacter(characterIdPicked);
