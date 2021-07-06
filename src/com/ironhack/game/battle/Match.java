@@ -1,10 +1,9 @@
 package com.ironhack.game.battle;
 
 
-import com.ironhack.game.character.Character;
 import com.ironhack.game.play.Player;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class Match {
     // Instance fields
@@ -27,8 +26,12 @@ public class Match {
         return player2;
     }
 
+    //The most important part of this class, after the initialization this method starts the match and produces a MatchResult,
+    //which stores info about the battles in a MatchResult class object
     public MatchResult getMatchResult() {
         int battleNo = 1;
+        //Inside this loop the battles are created and started, then added to the list
+        //here the fighting takes place
         while (playerHasAliveFighters(player1) && playerHasAliveFighters(player2)){
             Battle battle = new Battle(player1, player2);
             battle.startBattle();
@@ -36,12 +39,14 @@ public class Match {
 
             battleNo++;
         }
+        //isTieMatch is needed for the messages in MatchResult
         boolean isTieMatch = !playerHasAliveFighters(player1) && !playerHasAliveFighters(player2);
         Player winner = playerHasAliveFighters(player1) ? player1 : player2;
-        Player looser = playerHasAliveFighters(player1) ? player2 : player1;
-        return new MatchResult(1,winner,looser,isTieMatch, listOfBattles);
+        Player loser = playerHasAliveFighters(player1) ? player2 : player1;
+        return new MatchResult(1,winner,loser,isTieMatch, listOfBattles);
     }
 
+    //Earlier implementation was calculating if the characters are alive, now it only checks the size, after death the character is removed form the party
     private boolean playerHasAliveFighters(Player player){
         return player.getParty().size()>0;
     }

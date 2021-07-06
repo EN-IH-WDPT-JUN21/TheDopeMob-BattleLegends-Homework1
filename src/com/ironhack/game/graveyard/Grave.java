@@ -2,19 +2,18 @@ package com.ironhack.game.graveyard;
 
 import com.ironhack.game.character.Character;
 
+//Grave stores information about the dead character, everything here is needed only for printing the grave info in the toString() method
 public class Grave {
     private final Character character;
     private final String playerName;
     private final String opponentName;
     private final int battleNumber;
-    private final boolean matchTied;
 
-    public Grave(Character character, String playerName, String opponentName, int battleNumber, boolean matchTied) {
+    public Grave(Character character, String playerName, String opponentName, int battleNumber) {
         this.character = character;
         this.playerName = playerName;
         this.opponentName = opponentName;
         this.battleNumber = battleNumber;
-        this.matchTied = matchTied;
     }
 
     public Character getCharacter() {
@@ -33,20 +32,9 @@ public class Grave {
         return battleNumber;
     }
 
-    public boolean isMatchTied() {
-        return matchTied;
-    }
-
+    //Printing the grave content in a formatted way
     @Override
     public String toString() {
-        String lastSentance ="";
-        if (matchTied){
-            lastSentance = "He took his opponet to grave with him";
-        }
-        else{
-            lastSentance ="His opponent was overwhelming";
-        }
-        return character.getName()+" from "+playerName+"'s party died in battle "+battleNumber+" fighting against "+opponentName+
-                "\n"+lastSentance;
+        return character.getName()+" from "+playerName+"'s party died in battle "+battleNumber+" fighting against "+opponentName;
     }
 }
