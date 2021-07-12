@@ -16,11 +16,8 @@ public class Main {
         Menu.menuControl(1); // Start game set-up step by step
         System.out.println(GameSet.getPlayerOne());
         System.out.println(GameSet.getPlayerTwo());
-
-
         Match match = new Match(GameSet.getPlayerOne(), GameSet.getPlayerTwo());
         System.out.println(match.getMatchResult());
-
         Graveyard.printGravesInfo();
         System.out.println("Play again?");
     }
