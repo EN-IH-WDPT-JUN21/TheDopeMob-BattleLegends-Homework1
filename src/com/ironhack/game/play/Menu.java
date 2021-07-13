@@ -99,6 +99,7 @@ public abstract class Menu {
             case 3: // computer vs computer
                 GameSet.setPlayerOne(new Player("ComputerOne", false));
                 GameSet.setPlayerTwo(new Player("ComputerTwo", false));
+                System.out.println("Computer players created...\n");
                 break;
         }
     }
@@ -122,6 +123,7 @@ public abstract class Menu {
                 partyRandomly1.createPartyRandomly(GameSet.getPlayerOne());
                 CreatePartyRandomly partyRandomly2 = new CreatePartyRandomly();
                 partyRandomly2.createPartyRandomly(GameSet.getPlayerTwo());
+                System.out.println("Computer parties created...\n");
         }
     }
     // Helper method to createPartyByPlayMode()
