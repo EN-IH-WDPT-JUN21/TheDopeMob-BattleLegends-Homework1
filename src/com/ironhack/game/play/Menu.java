@@ -1,11 +1,9 @@
 package com.ironhack.game.play;
 
 import com.ironhack.game.party.CreatePartyManually;
-
-
 import com.ironhack.game.party.CreatePartyRandomly;
-
 import com.ironhack.game.party.ImportParty;
+
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 

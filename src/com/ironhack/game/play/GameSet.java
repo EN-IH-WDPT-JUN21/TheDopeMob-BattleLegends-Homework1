@@ -33,5 +33,4 @@ public class GameSet {
     public static void setPlayerTwo(Player playerTwo) {
         GameSet.playerTwo = playerTwo;
     }
-
 }
