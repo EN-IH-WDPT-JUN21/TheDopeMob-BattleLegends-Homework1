@@ -5,20 +5,23 @@ import com.ironhack.game.battle.Match;
 import com.ironhack.game.battle.MatchResult;
 import com.ironhack.game.graveyard.Graveyard;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
 
-        Start.welcome(); // Initial message and signal for game set-up;
+        Start.playMusic(); // Starts game soundtrack
+        Start.welcome(); // Initial message and signal for game set-up
         Menu.menuControl(1); // Start game set-up step by step
         System.out.println(GameSet.getPlayerOne());
         System.out.println(GameSet.getPlayerTwo());
         Match match = new Match(GameSet.getPlayerOne(), GameSet.getPlayerTwo());
         System.out.println(match.getMatchResult());
         Graveyard.printGravesInfo();
-        System.out.println("Play again?");
+        Start.playAgain();
     }
 }
