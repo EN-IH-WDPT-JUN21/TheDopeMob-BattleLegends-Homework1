@@ -22,7 +22,6 @@ public class Main {
 
         Match match = new Match(GameSet.getPlayerOne(), GameSet.getPlayerTwo());
         System.out.println(match.getMatchResult());
-
         Graveyard.printGravesInfo();
         Start.playAgain();
     }
