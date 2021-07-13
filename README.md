@@ -48,3 +48,7 @@ randomly chosen from a pre-determined list of hero's!
 When battling the game will automatically determine the winner of the round until a character is killed which then sends them to the gaveyard, a combat text will be avaliable to view to determine how your player attacked and defended.
 
 When all hero's on a team are sent to the graveyard the battle is then over and a winner is declared. 
+
+
+
+_The Dope Mob team do not claim any right over any of the graphics and the song used in this game. All rights reserved to the respective copyright owners. Regards to Alexander Nakarada and his beauty music theme called 'Borgar':_ https://www.youtube.com/watch?v=Xcb5WWPVUg4&ab_channel=AlexanderNakarada-Topic
