@@ -36,7 +36,7 @@ public abstract class Menu {
                                 // back - go back to last step of game set-up
             switch (userInput) {
                 case "quit":
-                    System.out.println("Quit game");
+                    System.exit(0);
                     menuControl = false;
                     break;
                 case "back":
