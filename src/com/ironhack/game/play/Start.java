@@ -1,11 +1,11 @@
 package com.ironhack.game.play;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.*;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 //---GAME START SCREEN
@@ -60,5 +60,19 @@ public abstract class Start {
                 System.out.println("\nThings went south. Try again.");
         }
     }
-
+    //Play music
+    public static void playMusic() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+        File musicFile = new File("src/com/ironhack/game/music/epic-sountrack.wav");
+        try
+        {
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(musicFile);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Can't play the soudtrack");
+//            throw new UnsupportedAudioFileException("Can't play the soudtrack");
+        }
+    }
 }

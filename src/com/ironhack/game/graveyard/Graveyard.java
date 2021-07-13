@@ -13,6 +13,7 @@ public class Graveyard {
         graves.add(grave);
     }
     public static void printGravesInfo(){
+
         System.out.println("\n\n======GRAVEYARD======\n");
         for (Grave grave : graves){
             System.out.println(grave);
