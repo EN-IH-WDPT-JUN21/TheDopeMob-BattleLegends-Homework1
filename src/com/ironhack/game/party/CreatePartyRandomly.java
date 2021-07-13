@@ -74,7 +74,7 @@ public class CreatePartyRandomly {
     //Set >>partySizeLimit<<
     public int setPartySizeLimit() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Type down how many fighters your party should have.");
+        System.out.println("Type down how many fighters this party should have.");
         do {
             System.out.println("Party must have at least 1 fighter.");
             while (!scanner.hasNextInt()) {
