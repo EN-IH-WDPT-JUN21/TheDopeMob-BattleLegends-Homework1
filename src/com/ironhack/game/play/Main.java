@@ -22,6 +22,6 @@ public class Main {
         System.out.println(match.getMatchResult());
 
         Graveyard.printGravesInfo();
-        System.out.println("Play again?");
+        Start.playAgain();
     }
 }

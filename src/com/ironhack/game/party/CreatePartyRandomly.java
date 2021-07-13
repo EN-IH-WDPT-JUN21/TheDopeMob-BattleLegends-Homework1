@@ -21,10 +21,17 @@ public class CreatePartyRandomly {
     private int intelligenceTemp;   //(range 1-50)
 
     //Array of random fighter names
-    String[] nameArray = {"Lydan", "Syrin", "Ptorik", "Joz", "Varog", "Gethrod", "Hezra", "Feron",
-            "Ophni", "Colborn", "Fintis", "Gatlin", "Jinto", "Hagalbar", "Krinn",
-            "Lenox", "Revvyn", "Hodus", "Dimian", "Paskel", "Kontas", "Weston",
-            "Azamarr", "Jather", "Tekren", "Jareth", "Adon"};
+    String[] nameArray = {"Lydan", "Syrin", "Ptorik", "Joz", "Varog", "Gethrod", "Hezra", "Feron", "Ophni", "Rourke",
+                          "Sir Gustavo the Great", "Colborn", "Fintis", "Gatlin", "Jinto", "Hagalbar", "Barton",
+                          "Krinn", "Lenox", "Revvyn", "Hodus", "Dimian", "Sir Dave the Mighty", "Paskel", "Kontas",
+                          "Weston", "Azamarr", "Jather", "Tekren", "Jareth", "Adon", "Zaden", "Eune", "Graff", "Tez",
+                          "Jessop", "Gunnar", "Pike", "Domnhar", "Baske", "Jerrick", "Mavrek", "Riordan", "Wulfe",
+                          "Straus", "Tyvrik", "Henndar", "Favroe", "Whit", "Jaris", "Renham", "Kagran", "Hemm", "Rivik",
+                          "Sir Wojciech the Wise", "Lassrin", "Vadim", "Arlo", "Quintis", "Vale", "Caelan", "Yorjan",
+                          "Khron", "Ishmael", "Jakrin", "Fangar", "Roux", "Baxar", "Hawke", "Gatlen", "Barak", "Nazim",
+                          "Kadric", "Paquin", "Kent", "Moki", "Rankar", "Sir Jegor the Worthy", "Lothe", "Ryven",
+                          "Clawsen", "Pakker", "Embre", "Cassian", "Verssek", "Dagfinn", "Ebraheim", "Nesso",
+                          "Eldermar"};
 
     //Creating parties randomly
     public void createPartyRandomly(Player player) {
