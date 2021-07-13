@@ -7,8 +7,8 @@ import com.ironhack.game.graveyard.Graveyard;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Main {
@@ -19,6 +19,7 @@ public class Main {
         Menu.menuControl(1); // Start game set-up step by step
         System.out.println(GameSet.getPlayerOne());
         System.out.println(GameSet.getPlayerTwo());
+
         Match match = new Match(GameSet.getPlayerOne(), GameSet.getPlayerTwo());
         System.out.println(match.getMatchResult());
         Graveyard.printGravesInfo();

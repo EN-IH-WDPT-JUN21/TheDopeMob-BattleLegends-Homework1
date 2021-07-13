@@ -1,5 +1,8 @@
 package com.ironhack.game.play;
 
+import com.ironhack.game.battle.Match;
+import com.ironhack.game.graveyard.Graveyard;
+
 import javax.imageio.ImageIO;
 import javax.sound.sampled.*;
 import javax.swing.*;
@@ -13,14 +16,14 @@ public abstract class Start {
 
     public static void welcome() {
         //----GENERATE WELCOME MESSAGE----//
-        System.out.println("DOPEMOB\npresents");
+        System.out.println("THE DOPE MOB presents");
         System.out.println("\nBATTLE\nLEGENDS");
         System.out.println("\nPress ENTER to start");
         Scanner scanner = new Scanner(System.in); // No scanner.close() since it also closes System.in (necessary for program)
 
-        while(true){ // while loop to only move ahead if user presses enter without entering any values
+        while (true) { // while loop to only move ahead if user presses enter without entering any values
             String enter = scanner.nextLine();
-            if(enter.equals("")) {
+            if (enter.equals("")) {
                 break;
             }
         }
@@ -52,6 +55,14 @@ public abstract class Start {
         switch (playAgain) {
             case 1:
                 Menu.menuControl(1);
+                System.out.println(GameSet.getPlayerOne());
+                System.out.println(GameSet.getPlayerTwo());
+
+                Match match = new Match(GameSet.getPlayerOne(), GameSet.getPlayerTwo());
+                System.out.println(match.getMatchResult());
+
+                Graveyard.printGravesInfo();
+                Start.playAgain();
                 break;
             case 2:
                 System.out.println("Thank you for playing.\nNext legendary battles are waiting for you!");
@@ -59,20 +70,21 @@ public abstract class Start {
             default:
                 System.out.println("\nThings went south. Try again.");
         }
+        scanner.close();
+
     }
+
     //Play music
     public static void playMusic() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         File musicFile = new File("src/com/ironhack/game/music/epic-sountrack.wav");
-        try
-        {
+        try {
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(musicFile);
             Clip clip = AudioSystem.getClip();
             clip.open(audioStream);
             clip.start();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Can't play the soudtrack");
-//            throw new UnsupportedAudioFileException("Can't play the soudtrack");
+            throw new UnsupportedAudioFileException("Can't play the soudtrack");
         }
     }
 }
