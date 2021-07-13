@@ -16,7 +16,7 @@ public abstract class Start {
 
     public static void welcome() {
         //----GENERATE WELCOME MESSAGE----//
-        System.out.println("THE DOPE MOB presents");
+        System.out.println("The DOPE MOB presents:");
         System.out.println("\n    ▄▄▄▄    ▄▄▄      ▄▄▄█████▓▄▄▄█████▓ ██▓    ▓█████     \n" +
                 "   ▓█████▄ ▒████▄    ▓  ██▒ ▓▒▓  ██▒ ▓▒▓██▒    ▓█   ▀     \n" +
                 "   ▒██▒ ▄██▒██  ▀█▄  ▒ ▓██░ ▒░▒ ▓██░ ▒░▒██░    ▒███       \n" +
