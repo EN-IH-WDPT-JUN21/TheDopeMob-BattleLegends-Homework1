@@ -1,5 +1,8 @@
 package com.ironhack.game.play;
 
+import com.ironhack.game.battle.Match;
+import com.ironhack.game.graveyard.Graveyard;
+
 import javax.imageio.ImageIO;
 import javax.sound.sampled.*;
 import javax.swing.*;
@@ -52,6 +55,14 @@ public abstract class Start {
         switch (playAgain) {
             case 1:
                 Menu.menuControl(1);
+                System.out.println(GameSet.getPlayerOne());
+                System.out.println(GameSet.getPlayerTwo());
+
+                Match match = new Match(GameSet.getPlayerOne(), GameSet.getPlayerTwo());
+                System.out.println(match.getMatchResult());
+
+                Graveyard.printGravesInfo();
+                Start.playAgain();
                 break;
             case 2:
                 System.out.println("Thank you for playing.\nNext legendary battles are waiting for you!");
@@ -59,6 +70,8 @@ public abstract class Start {
             default:
                 System.out.println("\nThings went south. Try again.");
         }
+        scanner.close();
+
     }
     //Play music
     public static void playMusic() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
@@ -72,7 +85,7 @@ public abstract class Start {
         }
         catch (Exception e){
             JOptionPane.showMessageDialog(null, "Can't play the soudtrack");
-//            throw new UnsupportedAudioFileException("Can't play the soudtrack");
+            throw new UnsupportedAudioFileException("Can't play the soudtrack");
         }
     }
 }
